@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+	<definition name="site.*.*" template="/freemarker/frame/site.ftl">
+		<put-attribute name="body" value="/freemarker/{1}/{2}.ftl"/>
+	</definition>
+	<definition name="ajax.*.*" template="/freemarker/frame/ajax.ftl">
+		<put-attribute name="body" value="/freemarker/{1}/{2}.ftl"/>
+	</definition>
+</tiles-definitions>
