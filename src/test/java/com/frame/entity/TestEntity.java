@@ -15,22 +15,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Test entity class.
+ * 
  * @author rainisic
  * @version 1.0.0
  * @since 1.0.0
  */
 @Entity
 public class TestEntity {
-	
+
 	/** Test entity primary key. Auto increment. */
 	@Id
 	@GeneratedValue
 	@Autowired
 	private int id;
-	
-	/** Test entity value field. Not null and default 0. */
-	@Column(nullable = false, columnDefinition = "int default 0")
+
+	/** Test entity value field. Not null and max length is 0. */
+	@Column(nullable = false, length = 100)
 	@Autowired
-	private int value;
-	
+	private String value;
+
 }
