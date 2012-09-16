@@ -2,7 +2,7 @@
  * Project:	dev-frame
  * Package:	com.frame.status.service
  * Author:	Rainisic
- * Copyright © 2012 by RainRhyme Internet Studio. All rights reserved.
+ * Copyright © 2012 by Rain Rhyme Internet Studio. All rights reserved.
  */
 package com.frame.status.service;
 

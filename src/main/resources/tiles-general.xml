@@ -4,6 +4,8 @@
        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 <tiles-definitions>
 	<definition name="site.*.*" template="/freemarker/frame/site.ftl">
+		<put-attribute name="header" value="/freemarker/include/header.ftl"/>
+		<put-attribute name="footer" value="/freemarker/include/footer.ftl"/>
 		<put-attribute name="body" value="/freemarker/{1}/{2}.ftl"/>
 	</definition>
 	<definition name="ajax.*.*" template="/freemarker/frame/ajax.ftl">

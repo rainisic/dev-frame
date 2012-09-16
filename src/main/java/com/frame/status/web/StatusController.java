@@ -2,16 +2,14 @@
  * Project:	dev-frame
  * Package:	com.frame.status.web
  * Author:	Rainisic
- * Copyright © 2012 by RainRhyme Internet Studio. All rights reserved.
+ * Copyright © 2012 by Rain Rhyme Internet Studio. All rights reserved.
  */
 package com.frame.status.web;
 
 import javax.annotation.Resource;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.frame.status.entity.Status;
 import com.frame.status.service.StatusService;
 
@@ -40,10 +38,15 @@ public class StatusController {
 	 */
 	@RequestMapping("check-status")
 	public String display(Model model) {
+		
+		// Load and add frame status.
 		Status st = statusService.saveStatus();
 		if (st != null) {
 			model.addAttribute("status", st);
 		}
-		return "ajax.frame-status.index";
+		
+		// Add page title.
+		model.addAttribute("pageTitle", "Frame Status");
+		return "site.frame-status.index";
 	}
 }

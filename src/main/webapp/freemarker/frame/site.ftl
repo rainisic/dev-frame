@@ -5,9 +5,11 @@
 <meta charset="utf-8">
 <meta name="description" content="">
 <meta name="keywords" content="">
-<title>青石岭白河大峡谷漂流官方网站</title>
+<title>${ pageTitle?default("dev-frame") } | Dev-Frame</title>
+<@tiles.insertAttribute name="header" />
 </head>
 <body>
 	<@tiles.insertAttribute name="body" />
+	<@tiles.insertAttribute name="footer" />
 </body>
 </html>

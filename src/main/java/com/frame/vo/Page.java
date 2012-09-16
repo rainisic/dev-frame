@@ -2,7 +2,7 @@
  * Project:	dev-frame
  * Package:	com.frame.vo
  * Author:	Rainisic
- * Copyright © 2012 by RainRhyme Internet Studio. All rights reserved.
+ * Copyright © 2012 by Rain Rhyme Internet Studio. All rights reserved.
  */
 package com.frame.vo;
 
@@ -29,7 +29,7 @@ public class Page {
 	private int size;
 
 	/**
-	 * @return the count
+	 * @return total page count.
 	 */
 	public int getCount() {
 		return count;
@@ -37,14 +37,14 @@ public class Page {
 
 	/**
 	 * @param count
-	 *            the count to set
+	 *            total page count to set.
 	 */
 	public void setCount(int count) {
 		this.count = count;
 	}
 
 	/**
-	 * @return the index
+	 * @return current page.
 	 */
 	public int getIndex() {
 		return index;
@@ -52,14 +52,14 @@ public class Page {
 
 	/**
 	 * @param index
-	 *            the index to set
+	 *            current page to set.
 	 */
 	public void setIndex(int index) {
 		this.index = index;
 	}
 
 	/**
-	 * @return the size
+	 * @return the page size.
 	 */
 	public int getSize() {
 		return size;
@@ -67,7 +67,7 @@ public class Page {
 
 	/**
 	 * @param size
-	 *            the size to set
+	 *            the page size to set.
 	 */
 	public void setSize(int size) {
 		this.size = size;

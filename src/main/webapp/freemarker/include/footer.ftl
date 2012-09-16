@@ -1,3 +1,1 @@
-<div class="footer">
-	Copyright &copy; 2012 by RainRhyme Internet Studio. All rights reserved.
-</div>
+<div class="footer">Copyright &copy; 2012 by <a href="http://www.rainisic.com/rain-rhyme-internet-studio/">Rain Rhyme Internet Studio</a>. All rights reserved.</div>

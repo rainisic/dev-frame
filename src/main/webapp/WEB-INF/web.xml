@@ -5,9 +5,9 @@
                         http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
 	<!-- Define welcome page. -->
-    <welcome-file-list>
-    	<welcome-file>index.html</welcome-file>
-    </welcome-file-list>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
 
 	<!-- Spring configuration location. -->
 	<context-param>
@@ -117,4 +117,12 @@
 		<error-code>404</error-code>
 		<location>/errorpage/404.html</location>
 	</error-page>
+
+	<!-- tile2 tag for ftl -->
+	<jsp-config>
+		<taglib>
+			<taglib-uri>http://tiles.apache.org/tags-tiles</taglib-uri>
+			<taglib-location>/WEB-INF/dtd/tiles2-jsp.tld</taglib-location>
+		</taglib>
+	</jsp-config>
 </web-app>
