@@ -15,6 +15,9 @@
 
 	<!-- Spring MVC Annotation Driven. -->
 	<mvc:annotation-driven />
+	
+	<!-- Ignore error page request. -->
+	<mvc:resources mapping="/errorpage/**" location="/errorpage/"/>
 
 	<!-- Add tiles configure -->
 	<bean id="tilesConfigurer"

@@ -31,14 +31,13 @@
 		<property name="hibernateProperties">
 			<value>
 				hibernate.dialect=${hibernate.dialect}
-				hibernate.hbm2ddl.auto=create
+				hibernate.hbm2ddl.auto=update
 				hibernate.show_sql=true
 				hibernate.format_sql=true
 			</value>
 		</property>
 	</bean>
 
-	<!-- Hibernate template. -->
 	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
@@ -51,6 +50,6 @@
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
 	<!-- Placeholder. -->
-	<context:property-placeholder location="/WEB-INF/conf/database.properties" />
+	<context:property-placeholder location="classpath:database.properties" />
 
 </beans>
