@@ -1,7 +1,7 @@
 <style type="text/css">
 .content h1 { margin: 0; padding: 10px 0; }
 .content p { text-align: left; text-indent: 2em; }
-.content table { width: 100%; border: 1px black solid; border-collapse: collapse; }
+.content table { width: 100%; border: 1px black solid; border-collapse: collapse; text-align: center; }
 .content table caption { font-weight: bold; }
 .content table th, table td { border: 1px black solid; padding: 5px; }
 .content table th { background-color: #DDD; }

@@ -10,11 +10,14 @@ package com.frame.dao;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
+
 import javax.annotation.Resource;
+
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Projections;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
+
 import com.frame.vo.Page;
 
 /**

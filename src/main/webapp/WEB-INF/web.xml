@@ -14,6 +14,12 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:applicationContext-*.xml</param-value>
 	</context-param>
+	
+	<!-- Application configuration location. -->
+	<context-param>
+		<param-name>appConfigLocation</param-name>
+		<param-value>classpath:config.properties</param-value>
+	</context-param>
 
 	<!-- Log4j configuration location. -->
 	<context-param>
@@ -28,6 +34,11 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	
+	<!-- Add application configuration loader listener. -->
+	<listener>
+		<listener-class>com.frame.listener.ConfigureLoaderListener</listener-class>
+	</listener>
 
 	<!-- Set the web page encoding. -->
 	<filter>
@@ -40,7 +51,7 @@
 	</filter>
 	<filter-mapping>
 		<filter-name>utf8Encoding</filter-name>
-		<url-pattern>*.html</url-pattern>
+		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
 	<!-- Add Spring MVC Dispatcher Servlet -->
@@ -113,9 +124,14 @@
 		<url-pattern>*.ftl</url-pattern>
 	</servlet-mapping>
 
+	<!-- Define error page. -->
 	<error-page>
 		<error-code>404</error-code>
-		<location>/errorpage/404.html</location>
+		<location>/errorpage/404</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/errorpage/500</location>
 	</error-page>
 
 	<!-- tile2 tag for ftl -->

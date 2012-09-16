@@ -2,13 +2,13 @@
  * Project:	dev-frame
  * Package:	test.frame.status.service
  * Author:	Rainisic
- * Copyright © 2012 by RainRhyme Internet Studio. All rights reserved.
+ * Copyright © 2012 by Rain Rhyme Internet Studio. All rights reserved.
  */
 package test.frame.status.service;
 
-import javax.annotation.Resource;
+import static junit.framework.Assert.assertEquals;
 
-import static junit.framework.Assert.*;
+import javax.annotation.Resource;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

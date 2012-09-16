@@ -7,7 +7,9 @@
 package com.frame.status.service.impl;
 
 import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
+
 import com.frame.dao.AdvancedHibernateDao;
 import com.frame.status.entity.Status;
 import com.frame.status.service.StatusService;
@@ -33,7 +35,7 @@ public class StatusServiceImpl implements StatusService {
 	 */
 	@Override
 	public Status saveStatus() {
-		
+
 		// Check database connection status.
 		Status st = dao.findById(Status.class, 1);
 		if (st != null) {
