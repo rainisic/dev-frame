@@ -17,7 +17,7 @@ import com.frame.status.service.StatusService;
 
 /**
  * Frame status check controller.<br>
- * You can visit <address>http://localhost:[port]/frame/check-status</address>
+ * You can visit <address>http://localhost:[port]/status/check-status</address>
  * to check the framework status.
  * 
  * @author Rainisic
@@ -25,7 +25,7 @@ import com.frame.status.service.StatusService;
  * @since 1.0.0
  */
 @Controller
-@RequestMapping("frame")
+@RequestMapping("status")
 public class StatusController {
 
 	/** Define the frame status service. */

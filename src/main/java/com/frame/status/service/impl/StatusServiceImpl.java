@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.frame.dao.AdvancedHibernateDao;
+import com.frame.dao.AdvancedDao;
 import com.frame.status.entity.Status;
 import com.frame.status.service.StatusService;
 
@@ -26,7 +26,7 @@ public class StatusServiceImpl implements StatusService {
 
 	/** Define the advanced hibernate data access class. */
 	@Resource
-	private AdvancedHibernateDao<Status> dao;
+	private AdvancedDao<Status> dao;
 
 	/*
 	 * (non-Javadoc)

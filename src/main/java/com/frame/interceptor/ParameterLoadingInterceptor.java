@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.frame.util.ApplicationConfiguration;
+import com.frame.vo.SEO;
 
 /**
  * Load common parameters.
@@ -36,7 +37,13 @@ public class ParameterLoadingInterceptor extends HandlerInterceptorAdapter {
 
 		// Set project name.
 		request.setAttribute("projectName",
-				ApplicationConfiguration.getProperty("project_name"));
+				ApplicationConfiguration.getProperty("project.name"));
+
+		// Set SEO parameters.
+		request.setAttribute(
+				"seo",
+				new SEO(ApplicationConfiguration.getProperty("seo.keywords"),
+						ApplicationConfiguration.getProperty("seo.description")));
 
 		return true;
 	}
