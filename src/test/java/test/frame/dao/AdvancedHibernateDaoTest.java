@@ -6,6 +6,8 @@
  */
 package test.frame.dao;
 
+import java.lang.reflect.Field;
+
 import javax.annotation.Resource;
 
 import org.junit.Test;
@@ -26,11 +28,31 @@ import com.frame.status.entity.Status;
 public class AdvancedHibernateDaoTest {
 
 	@Resource
-	private AdvancedHibernateDao<Status> dao;
+	public AdvancedHibernateDao<Status> dao;
+	
+	@Resource
+	public AdvancedHibernateDao<com.frame.status.entity.Test> dao2;
 
 	@Test
 	public void test() {
-		System.out.println(dao.count(Status.class));
+		try {
+			Field c = AdvancedHibernateDaoTest.class.getField("dao");  
+			Field c2 = AdvancedHibernateDaoTest.class.getField("dao2");
+			
+			Field f = Field.class.getDeclaredField("signature");  
+			f.setAccessible(true);  
+			System.out.println(((String) f.get(c)));
+			System.out.println(((String) f.get(c2)));
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (NoSuchFieldException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
+        
 	}
 
 }
