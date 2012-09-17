@@ -3,7 +3,7 @@
  * Package: com.frame.vo
  * Author:	rainisic
  * Date:	Sep 17, 2012
- * Copyright © 2012 by RainRhyme Internet Studio. All rights reserved.
+ * Copyright © 2012 by Rain Rhyme Internet Studio. All rights reserved.
  */
 package com.frame.vo;
 
