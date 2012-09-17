@@ -30,19 +30,13 @@ public class AdvancedHibernateDaoTest {
 	@Resource
 	public AdvancedHibernateDao<Status> dao;
 	
-	@Resource
-	public AdvancedHibernateDao<com.frame.status.entity.Test> dao2;
-
 	@Test
 	public void test() {
 		try {
 			Field c = AdvancedHibernateDaoTest.class.getField("dao");  
-			Field c2 = AdvancedHibernateDaoTest.class.getField("dao2");
-			
 			Field f = Field.class.getDeclaredField("signature");  
 			f.setAccessible(true);  
 			System.out.println(((String) f.get(c)));
-			System.out.println(((String) f.get(c2)));
 		} catch (SecurityException e) {
 			e.printStackTrace();
 		} catch (IllegalArgumentException e) {
@@ -52,7 +46,6 @@ public class AdvancedHibernateDaoTest {
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
 		}
-        
 	}
 
 }
