@@ -18,13 +18,11 @@ import javax.annotation.Resource;
 import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
-import com.frame.vo.Page;
-
 /**
  * Provide advanced hibernate data access functions.<br>
  * All simple data access can use this class instead of define a new one.<br>
  * 
- * @author rainisic
+ * @author rainisicfirstResult
  * @version 1.0.0
  * @since 1.0.0
  */
@@ -32,7 +30,7 @@ public abstract class AdvancedHibernateDao<T> {
 
 	/** Hibernate access object. */
 	@Resource
-	private HibernateTemplate hibernateTemplate;
+	protected HibernateTemplate hibernateTemplate;
 
 	/** Finalize class type. */
 	private final Class<T> clazz;
@@ -215,7 +213,7 @@ public abstract class AdvancedHibernateDao<T> {
 	}
 
 	/**
-	 * Return all persistent instance of the given entity class.
+	 * Return all persistent instance.
 	 * 
 	 * @return containing 0 or more persistent instances
 	 */
@@ -226,18 +224,20 @@ public abstract class AdvancedHibernateDao<T> {
 	}
 
 	/**
-	 * Return persistent instances of the given entity class. Paging by the
-	 * given page.
+	 * Return all persistent instance. Limit by parameters.
 	 * 
-	 * @param page
-	 *            paging object.
+	 * @param firstResult
+	 *            the index of the first result object to be retrieved (numbered
+	 *            from 0)
+	 * @param maxResults
+	 *            the maximum number of result objects to retrieve (or <=0 for
+	 *            no limit)
 	 * @return containing 0 or more persistent instances
 	 */
 	@SuppressWarnings("unchecked")
-	public List<T> list(Page page) {
+	public List<T> list(int firstResult, int maxResults) {
 		return hibernateTemplate.findByCriteria(
-				DetachedCriteria.forClass(clazz),
-				(page.getIndex() - 1) * page.getSize(), page.getSize());
+				DetachedCriteria.forClass(clazz), firstResult, maxResults);
 	}
 
 	/**
