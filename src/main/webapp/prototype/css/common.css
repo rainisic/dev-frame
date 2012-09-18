@@ -4,19 +4,27 @@ html, body { margin: 0; padding: 0; font-size: 13px; font-family: "Microsoft Yah
 body { background: url("../images/bg.jpg") repeat-x; }
 a { text-decoration: none; }
 ul, li { margin: 0px; padding: 0px; list-style: none; }
+
 .limit { width: 960px; margin: 0 auto; padding-bottom: 30px; }
 
-.header { width: 100%; height: 180px; }
-.header .logo { display: inline-block; *display: inline; *zoom: 1; width: 180px; height: 180px; background: url("../images/logo.png") center no-repeat; float: left; }
-.header .navigator { display: inline-block; *display: inline; *zoom: 1; width: 780px; height: 180px; float: right; }
-.header .navigator ul { height: 30px; margin-top: 115px; margin-left: 20px; line-height: 30px; font-size: 18px; color: white; }
-.header .navigator ul li { display: inline; width: 120px; text-align: center; }
-.header .navigator ul li a { color: white; display: inline-block; *display: inline; *zoom: 1; padding: 0px 20px; height: 30px; border-radius: 5px; text-shadow: 1px 1px 5px black; }
-.header .navigator ul li a:hover { background-color: #007dbc; }
-.header .navigator ul li a.active { background-color: #005588; }
+.site-header { width: 100%; height: 180px; }
+.site-header .logo { display: inline-block; *display: inline; *zoom: 1; width: 180px; height: 180px; background: url("../images/logo.png") center no-repeat; float: left; }
+.site-header .navigator { display: inline-block; *display: inline; *zoom: 1; width: 780px; height: 180px; float: right; }
+.site-header .navigator ul { height: 30px; margin-top: 115px; margin-left: 20px; line-height: 30px; font-size: 18px; color: white; }
+.site-header .navigator ul li { display: inline; width: 120px; text-align: center; }
+.site-header .navigator ul li a { color: white; display: inline-block; *display: inline; *zoom: 1; padding: 0px 20px; height: 30px; border-radius: 5px; text-shadow: 1px 1px 5px black; }
+.site-header .navigator ul li a:hover { background-color: #007dbc; }
+.site-header .navigator ul li a.active { background-color: #005588; }
 
-.section { background-color: white; border: 1px darkgray solid; box-shadow: 0px 0px 20px #666666; }
-.content { width: 100%; padding: 20px; }
-.footer { text-align: center; padding: 10px; font-size: 12px; color: gray; }
+.main-section { background-color: white; border: 1px darkgray solid; box-shadow: 0px 0px 20px #666666; }
+.main-section .content { padding: 20px; }
 
-.col-70 { width: 70%; }
+.site-footer { text-align: center; padding: 10px; font-size: 12px; color: gray; }
+.site-footer a { color: gray; text-decoration: none; }
+
+.col-20 { display: inline-block; *display: inline; *zoom: 1; width: 20%; }
+.col-50 { display: inline-block; *display: inline; *zoom: 1; width: 50%; }
+.col-80 { display: inline-block; *display: inline; *zoom: 1; width: 80%; }
+.left { text-align: left; }
+.center { text-align: center; }
+.right { text-align: right; }

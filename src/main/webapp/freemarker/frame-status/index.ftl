@@ -1,3 +1,6 @@
+<script type="text/javascript">
+document.createElement("section");
+</script>
 <style type="text/css">
 .content h1 { margin: 0; padding: 10px 0; }
 .content p { text-align: left; text-indent: 2em; }
@@ -29,4 +32,6 @@
 		<h1>Error!</h1>
 		<p>系统自检失败,请手动检查各项配置是否成功.</p>
 	</#if>
+	
+	<section style="background-color: red; display: block; width: 100%; height: 100px;">1</section>
 </div>
