@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.frame.dao.AdvancedDao;
+import com.frame.status.dao.impl.StatusDao;
 import com.frame.status.entity.Status;
 import com.frame.status.service.StatusService;
 
@@ -26,7 +26,7 @@ public class StatusServiceImpl implements StatusService {
 
 	/** Define the advanced hibernate data access class. */
 	@Resource
-	private AdvancedDao<Status> dao;
+	private StatusDao statusDao;
 
 	/*
 	 * (non-Javadoc)
@@ -37,11 +37,11 @@ public class StatusServiceImpl implements StatusService {
 	public Status saveStatus() {
 
 		// Check database connection status.
-		Status st = dao.findById(Status.class, 1);
+		Status st = statusDao.get(1);
 		if (st != null) {
-			dao.delete(st);
+			statusDao.delete(st);
 		}
-		dao.save(new Status());
-		return dao.findById(Status.class, 1);
+		statusDao.save(new Status());
+		return statusDao.get(1);
 	}
 }
