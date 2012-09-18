@@ -29,6 +29,28 @@ public class Page {
 	private int size;
 
 	/**
+	 * Default constructor.
+	 */
+	public Page() {
+	}
+
+	/**
+	 * Constructor with page count, page size and current page.
+	 * 
+	 * @param count
+	 *            page count.
+	 * @param index
+	 *            current page.
+	 * @param size
+	 *            page size.
+	 */
+	public Page(int count, int index, int size) {
+		this.count = count;
+		this.index = index;
+		this.size = size;
+	}
+
+	/**
 	 * @return total page count.
 	 */
 	public int getCount() {
