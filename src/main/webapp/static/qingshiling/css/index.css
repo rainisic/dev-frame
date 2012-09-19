@@ -12,8 +12,8 @@
 .quicklunch hr { margin: 0; border-style: dashed; border-color: silver; }
 .quicklunch p { margin: 11px 0; height: 110px; letter-spacing: 3px; }
 .quicklunch em { display: block; color: gray; margin-bottom: 10px; }
-.quicklunch a.go-button { text-align: center; display: inline-block; width: 155px; height: 39px; line-height: 40px; background: url("../images/go-button.png") 0 -39px no-repeat; font-size: 15px; color: black; text-shadow: 2px 1px 3px darkgray; }
-.quicklunch a.go-button:hover {  background: url("../images/go-button.png") 0 0 no-repeat; }
+.quicklunch a.go-button { text-align: center; display: inline-block; width: 155px; height: 39px; line-height: 40px; background: url("/static/qingshiling/images/go-button.png") 0 -39px no-repeat; font-size: 15px; color: black; text-shadow: 2px 1px 3px darkgray; }
+.quicklunch a.go-button:hover {  background: url("/static/qingshiling/images/go-button.png") 0 0 no-repeat; }
 
 .topics { margin: 20px 0px; }
 .topics header { border-bottom: 1px silver solid; }
