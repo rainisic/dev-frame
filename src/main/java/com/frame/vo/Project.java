@@ -9,18 +9,40 @@ package com.frame.vo;
 
 /**
  * @author rainisic
- *
+ * 
  */
 public class Project {
-	
+
 	/** Identifier of the project. */
 	private String name;
-	
+
 	/** The project title. Will be displayed in the website title. */
 	private String title;
-	
+
 	/** Base path for include static resources(JS, CSS, Images, etc.). */
 	private String staticDomain;
+
+	/**
+	 * Default constructor.
+	 */
+	public Project() {
+	}
+
+	/**
+	 * Create an instance with project name, title and static domain.
+	 * 
+	 * @param name
+	 *            the project name to set.
+	 * @param title
+	 *            the project title to set.
+	 * @param staticDomain
+	 *            the static resources domain.
+	 */
+	public Project(String name, String title, String staticDomain) {
+		this.name = name;
+		this.title = title;
+		this.staticDomain = staticDomain;
+	}
 
 	/**
 	 * @return the name
@@ -30,7 +52,8 @@ public class Project {
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param name
+	 *            the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -44,7 +67,8 @@ public class Project {
 	}
 
 	/**
-	 * @param title the title to set
+	 * @param title
+	 *            the title to set
 	 */
 	public void setTitle(String title) {
 		this.title = title;
@@ -58,7 +82,8 @@ public class Project {
 	}
 
 	/**
-	 * @param staticDomain the staticDomain to set
+	 * @param staticDomain
+	 *            the staticDomain to set
 	 */
 	public void setStaticDomain(String staticDomain) {
 		this.staticDomain = staticDomain;

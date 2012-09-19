@@ -8,10 +8,10 @@ package com.frame.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import static com.frame.util.ApplicationConfiguration.*;
 
-import com.frame.util.ApplicationConfiguration;
+import com.frame.vo.Project;
 import com.frame.vo.SEO;
 
 /**
@@ -36,18 +36,13 @@ public class ParameterLoadingInterceptor extends HandlerInterceptorAdapter {
 			HttpServletResponse response, Object handler) throws Exception {
 
 		// Set project name and project title.
-		request.setAttribute("projectName",
-				ApplicationConfiguration.getProperty("project.name"));
-		request.setAttribute("projectTitle",
-				ApplicationConfiguration.getProperty("project.title"));
+		request.setAttribute("project", new Project(
+				getProperty("project.name"), getProperty("project.title"),
+				getProperty("project.static_domain")));
 
 		// Set SEO parameters.
-		request.setAttribute(
-				"seo",
-				new SEO(ApplicationConfiguration.getProperty("seo.keywords"),
-						ApplicationConfiguration.getProperty("seo.description")));
-
-		// Set
+		request.setAttribute("seo", new SEO(getProperty("seo.keywords"),
+				getProperty("seo.description")));
 
 		return true;
 	}
