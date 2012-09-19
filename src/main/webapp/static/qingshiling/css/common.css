@@ -8,7 +8,7 @@ ul, li { margin: 0px; padding: 0px; list-style: none; }
 .limit { width: 960px; margin: 0 auto; padding-bottom: 30px; }
 
 .site-header { width: 100%; height: 180px; }
-.site-header .logo { display: inline-block; *display: inline; *zoom: 1; width: 180px; height: 180px; background: url("../images/logo.png") center no-repeat; float: left; }
+.site-header .logo { display: inline-block; *display: inline; *zoom: 1; width: 180px; height: 180px; background: url("/static/qingshiling/images/logo.png") center no-repeat; float: left; }
 .site-header .navigator { display: inline-block; *display: inline; *zoom: 1; width: 780px; height: 180px; float: right; }
 .site-header .navigator ul { height: 30px; margin-top: 115px; margin-left: 20px; line-height: 30px; font-size: 18px; color: white; }
 .site-header .navigator ul li { display: inline; width: 120px; text-align: center; }
