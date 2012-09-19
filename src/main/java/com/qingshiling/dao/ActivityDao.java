@@ -25,11 +25,17 @@ import com.qingshiling.entity.Activity;
  * 
  */
 @Repository
-public class ActivityDao extends AdvancedHibernateDao<Activity>{
+public class ActivityDao extends AdvancedHibernateDao<Activity> {
+	
+	/**
+	 * 将hibernateTemplate注入到DAO层
+	 */
 	@Resource
 	HibernateTemplate hibernateTemplate;
+
 	/**
 	 * 查询发布的活动列表
+	 * 
 	 * @author lge
 	 * @return List<Activity>
 	 */
@@ -37,11 +43,13 @@ public class ActivityDao extends AdvancedHibernateDao<Activity>{
 	public List<Activity> findPublishActivityList(Page page) {
 		DetachedCriteria crit = DetachedCriteria.forClass(Activity.class);
 		crit.add(Restrictions.eq("status", Activity.PUBLISH));
-		return super.getHibernateTemplate().findByCriteria(crit, (page.getIndex() - 1)*page.getSize(), page.getSize());
+		return super.getHibernateTemplate().findByCriteria(crit,
+				(page.getIndex() - 1) * page.getSize(), page.getSize());
 	}
-	
+
 	/**
 	 * 查询删除了的活动列表
+	 * 
 	 * @author lge
 	 * @return List<Activity>
 	 */
@@ -49,7 +57,8 @@ public class ActivityDao extends AdvancedHibernateDao<Activity>{
 	public List<Activity> findDeletedActivityList(Page page) {
 		DetachedCriteria crit = DetachedCriteria.forClass(Activity.class);
 		crit.add(Restrictions.eq("status", Activity.DELETE));
-		return super.getHibernateTemplate().findByCriteria(crit, (page.getIndex() - 1)*page.getSize(), page.getSize());
+		return super.getHibernateTemplate().findByCriteria(crit,
+				(page.getIndex() - 1) * page.getSize(), page.getSize());
 	}
 
 }
