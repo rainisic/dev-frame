@@ -2,11 +2,11 @@
 <section class="content">
 	<div class="gallery">
 		<figure>
-			<img style="display: block; opacity: 1; " src="${ project.staticDomain! }/${ project.name! }/images/1.jpg">
-			<img src="${ project.staticDomain! }/${ project.name! }/images/2.jpg">
-			<img src="${ project.staticDomain! }/${ project.name! }/images/3.jpg">
-			<img src="${ project.staticDomain! }/${ project.name! }/images/4.jpg">
-			<img src="${ project.staticDomain! }/${ project.name! }/images/5.jpg">
+			<a href="#"><img src="${ project.staticDomain! }/${ project.name! }/images/1.jpg"></a>
+			<a href="#"><img src="${ project.staticDomain! }/${ project.name! }/images/2.jpg"></a>
+			<a href="#"><img src="${ project.staticDomain! }/${ project.name! }/images/3.jpg"></a>
+			<a href="#"><img src="${ project.staticDomain! }/${ project.name! }/images/4.jpg"></a>
+			<a href="#"><img src="${ project.staticDomain! }/${ project.name! }/images/5.jpg"></a>
 		</figure>
 		<div class="layer">
 			<img class="active" src="${ project.staticDomain! }/${ project.name! }/images/1.jpg">
@@ -46,6 +46,7 @@
 			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-20 right">2012-01-01 12:12:12</span></li>
 			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-20 right">2012-01-01 12:12:12</span></li>
 		</ul>
+		<footer><a href="#">查看全部活动</a></footer>
 	</section>
 </section>
 <script type="text/javascript" src="${ project.staticDomain! }/${ project.name! }/js/index.js"></script>
