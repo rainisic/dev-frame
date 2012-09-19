@@ -1,19 +1,19 @@
-<link rel="stylesheet" type="text/css" href="/static/qingshiling/css/index.css">
+<link rel="stylesheet" type="text/css" href="${ project.staticDomain! }/${ project.name! }/css/index.css">
 <section class="content">
 	<div class="gallery">
 		<figure>
-			<img style="display: block; opacity: 1; " src="/static/qingshiling/images/1.jpg">
-			<img src="/static/qingshiling/images/2.jpg">
-			<img src="/static/qingshiling/images/3.jpg">
-			<img src="/static/qingshiling/images/4.jpg">
-			<img src="/static/qingshiling/images/5.jpg">
+			<img style="display: block; opacity: 1; " src="${ project.staticDomain! }/${ project.name! }/images/1.jpg">
+			<img src="${ project.staticDomain! }/${ project.name! }/images/2.jpg">
+			<img src="${ project.staticDomain! }/${ project.name! }/images/3.jpg">
+			<img src="${ project.staticDomain! }/${ project.name! }/images/4.jpg">
+			<img src="${ project.staticDomain! }/${ project.name! }/images/5.jpg">
 		</figure>
 		<div class="layer">
-			<img class="active" src="/static/qingshiling/images/1.jpg">
-			<img src="/static/qingshiling/images/2.jpg">
-			<img src="/static/qingshiling/images/3.jpg">
-			<img src="/static/qingshiling/images/4.jpg">
-			<img src="/static/qingshiling/images/5.jpg">
+			<img class="active" src="${ project.staticDomain! }/${ project.name! }/images/1.jpg">
+			<img src="${ project.staticDomain! }/${ project.name! }/images/2.jpg">
+			<img src="${ project.staticDomain! }/${ project.name! }/images/3.jpg">
+			<img src="${ project.staticDomain! }/${ project.name! }/images/4.jpg">
+			<img src="${ project.staticDomain! }/${ project.name! }/images/5.jpg">
 		</div>
 	</div>
 	<aside class="quicklunch">
@@ -48,4 +48,4 @@
 		</ul>
 	</section>
 </section>
-<script type="text/javascript" src="/static/qingshiling/js/index.js"></script>
+<script type="text/javascript" src="${ project.staticDomain! }/${ project.name! }/js/index.js"></script>
