@@ -6,10 +6,12 @@
  */
 package com.frame.interceptor;
 
+import static com.frame.util.ApplicationConfiguration.getProperty;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-import static com.frame.util.ApplicationConfiguration.*;
 
 import com.frame.vo.Project;
 import com.frame.vo.SEO;

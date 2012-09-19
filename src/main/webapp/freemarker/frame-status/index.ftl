@@ -18,11 +18,11 @@
 			</tr>
 			<tr>
 				<td>操作系统</td>
-				<td>${ status.system?default("检测操作系统失败") }</td>
+				<td>${ status.system!"检测操作系统失败" }</td>
 			</tr>
 			<tr>
 				<td>JDK版本</td>
-				<td>${ status.jdk?default("未检测到JDK") }</td>
+				<td>${ status.jdk!"未检测到JDK" }</td>
 			</tr>
 		</table>
 	<#else>

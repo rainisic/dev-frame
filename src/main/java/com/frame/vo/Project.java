@@ -8,8 +8,11 @@
 package com.frame.vo;
 
 /**
- * @author rainisic
+ * Project value object.
  * 
+ * @author rainisic
+ * @version 1.0.0
+ * @since 1.0.0
  */
 public class Project {
 
