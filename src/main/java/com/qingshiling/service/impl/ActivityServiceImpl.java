@@ -27,7 +27,10 @@ import com.qingshiling.service.ActivityService;
  */
 @Service
 public class ActivityServiceImpl implements ActivityService {
-
+	
+	/**
+	 * 将activityDao注入到service层
+	 */
 	@Resource
 	private ActivityDao activityDao;
 
@@ -131,13 +134,16 @@ public class ActivityServiceImpl implements ActivityService {
 		return activityDao.findDeletedActivityList(page);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.qingshiling.service.ActivityService#getActivity(java.lang.Integer)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.qingshiling.service.ActivityService#getActivity(java.lang.Integer)
 	 */
 	@Override
 	public Activity getActivity(Integer id) {
 		Activity activity = activityDao.get(id);
-		if(activity != null){
+		if (activity != null) {
 			return activity;
 		}
 		return null;

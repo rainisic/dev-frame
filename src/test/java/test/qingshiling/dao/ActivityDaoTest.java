@@ -8,18 +8,13 @@
 package test.qingshiling.dao;
 
 import java.util.List;
-
 import javax.annotation.Resource;
-
 import junit.framework.Assert;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
 import com.frame.vo.Page;
 import com.qingshiling.dao.ActivityDao;
 import com.qingshiling.entity.Activity;
