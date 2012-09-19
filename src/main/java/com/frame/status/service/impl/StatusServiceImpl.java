@@ -24,7 +24,7 @@ import com.frame.status.service.StatusService;
 @Service
 public class StatusServiceImpl implements StatusService {
 
-	/** Define the advanced hibernate data access class. */
+	/** Define the instance of StatusDao. */
 	@Resource
 	private StatusDao statusDao;
 

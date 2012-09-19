@@ -35,15 +35,19 @@ public class ParameterLoadingInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
 
-		// Set project name.
+		// Set project name and project title.
 		request.setAttribute("projectName",
 				ApplicationConfiguration.getProperty("project.name"));
+		request.setAttribute("projectTitle",
+				ApplicationConfiguration.getProperty("project.title"));
 
 		// Set SEO parameters.
 		request.setAttribute(
 				"seo",
 				new SEO(ApplicationConfiguration.getProperty("seo.keywords"),
 						ApplicationConfiguration.getProperty("seo.description")));
+
+		// Set
 
 		return true;
 	}
