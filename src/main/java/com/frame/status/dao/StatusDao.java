@@ -1,11 +1,11 @@
 /* @(#) StatusDao.java
  * Project:	dev-frame
- * Package: com.frame.status.dao.impl
+ * Package: com.frame.status.dao
  * Author:	rainisic
  * Date:	Sep 18, 2012
  * Copyright © 2012 by Rain Rhyme Internet Studio. All rights reserved.
  */
-package com.frame.status.dao.impl;
+package com.frame.status.dao;
 
 import org.springframework.stereotype.Repository;
 

@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.frame.status.dao.impl.StatusDao;
+import com.frame.status.dao.StatusDao;
 import com.frame.status.entity.Status;
 import com.frame.status.service.StatusService;
 
