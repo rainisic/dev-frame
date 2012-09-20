@@ -125,14 +125,14 @@
 	</servlet-mapping>
 
 	<!-- Define error page. -->
-	<error-page>
+<!-- 	<error-page>
 		<error-code>404</error-code>
 		<location>/errorpage/404</location>
 	</error-page>
 	<error-page>
 		<error-code>500</error-code>
 		<location>/errorpage/500</location>
-	</error-page>
+	</error-page> -->
 
 	<!-- tile2 tag for ftl -->
 	<jsp-config>

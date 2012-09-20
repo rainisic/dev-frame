@@ -7,10 +7,20 @@
  */
 package com.qingshiling.activity.web;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 /**
  * @author lge
- *
+ * 
  */
+@Controller
+@RequestMapping("activity")
 public class ActivityController {
 
+	@RequestMapping("page/{page}")
+	public String list(Model model, int page) {
+		return "site.activity.list";
+	}
 }
