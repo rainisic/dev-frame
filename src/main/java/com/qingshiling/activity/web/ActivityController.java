@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.frame.vo.Page;
+
 /**
  * @author lge
  * 
@@ -19,8 +21,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("activity")
 public class ActivityController {
 
-	@RequestMapping("page/{page}")
-	public String list(Model model, int page) {
+	@RequestMapping("page/{index}")
+	public String list(Model model, Page page) {
 		return "site.activity.list";
 	}
 }
