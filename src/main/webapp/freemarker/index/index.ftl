@@ -1,3 +1,6 @@
+<!--[if lte IE 8]>
+<script type="text/javascript" src="${ project.staticDomain! }/${ project.name! }/js/index.ie.js"></script>
+<![endif]-->
 <link rel="stylesheet" type="text/css" href="${ project.staticDomain! }/${ project.name! }/css/index.css">
 <section class="content">
 	<div class="gallery">
@@ -35,18 +38,18 @@
 	<section class="topics">
 		<header><h1>最新活动</h1></header>
 		<ul>
-			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-20 right">2012-01-01 12:12:12</span></li>
-			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-20 right">2012-01-01 12:12:12</span></li>
-			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-20 right">2012-01-01 12:12:12</span></li>
-			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-20 right">2012-01-01 12:12:12</span></li>
-			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-20 right">2012-01-01 12:12:12</span></li>
-			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-20 right">2012-01-01 12:12:12</span></li>
-			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-20 right">2012-01-01 12:12:12</span></li>
-			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-20 right">2012-01-01 12:12:12</span></li>
-			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-20 right">2012-01-01 12:12:12</span></li>
-			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-20 right">2012-01-01 12:12:12</span></li>
+			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-18 right">2012-01-01 12:12:12</span></li>
+			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-18 right">2012-01-01 12:12:12</span></li>
+			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-18 right">2012-01-01 12:12:12</span></li>
+			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-18 right">2012-01-01 12:12:12</span></li>
+			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-18 right">2012-01-01 12:12:12</span></li>
+			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-18 right">2012-01-01 12:12:12</span></li>
+			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-18 right">2012-01-01 12:12:12</span></li>
+			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-18 right">2012-01-01 12:12:12</span></li>
+			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-18 right">2012-01-01 12:12:12</span></li>
+			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-18 right">2012-01-01 12:12:12</span></li>
 		</ul>
-		<footer><a href="#">查看全部活动</a></footer>
+		<footer>«&nbsp;<a href="#">查看全部活动</a>&nbsp;»</footer>
 	</section>
 </section>
 <script type="text/javascript" src="${ project.staticDomain! }/${ project.name! }/js/index.js"></script>

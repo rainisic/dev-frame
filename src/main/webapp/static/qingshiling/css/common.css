@@ -2,8 +2,10 @@
 
 html, body { margin: 0; padding: 0; font-size: 13px; font-family: "Microsoft Yahei", Sans-Serif; }
 body { background: url("../images/bg.jpg") repeat-x; }
-a { text-decoration: none; color: black; }
+a { text-decoration: none; color: black; border: none; }
 ul, li { margin: 0px; padding: 0px; list-style: none; }
+figure { display: block; margin: 0; padding: 0; border: none; }
+img { border: none; }
 
 .limit { width: 960px; margin: 0 auto; padding-bottom: 30px; }
 
@@ -22,9 +24,13 @@ ul, li { margin: 0px; padding: 0px; list-style: none; }
 .site-footer { text-align: center; padding: 10px; font-size: 12px; color: gray; }
 .site-footer a { color: gray; text-decoration: none; }
 
+.col-18 { display: inline-block; *display: inline; *zoom: 1; width: 17%; }
 .col-20 { display: inline-block; *display: inline; *zoom: 1; width: 20%; }
 .col-50 { display: inline-block; *display: inline; *zoom: 1; width: 50%; }
 .col-80 { display: inline-block; *display: inline; *zoom: 1; width: 80%; }
+
+.ml-20 { margin-left: 20px; }
+
 .left { text-align: left; }
 .center { text-align: center; }
 .right { text-align: right; }

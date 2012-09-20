@@ -1,4 +1,0 @@
-@CHARSET "UTF-8";
-/* Reset fake HTML5 tags(Just for IE8 and lower.) */
-article, aside, figure, figcaption, footer, header, hgroup, nav, section { display: block; }
-mark, time { display: inline; }

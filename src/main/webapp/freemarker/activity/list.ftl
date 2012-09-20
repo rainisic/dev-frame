@@ -1,18 +1,42 @@
-<style type="text/css">
-.content ul li { border-bottom: 1px silver dotted; }
-.content ul li time { display: inline-block; width: 100px; border-right: 1px silver solid; text-align: center; }
-.content ul li time .yearAndMonth { font-size: 15px; height: 25px; line-height: 25px; }
-.content ul li time .date { font-size: 24px; height: 40px; line-height: 40px; }
-.content ul li a { display: inline-block; height: 65px; line-height: 65px; }
-</style>
+<link rel="stylesheet" type="text/css" href="${ project.staticDomain! }/${ project.name! }/css/activity-list.css">
 <section class="content">
+	<div class="page"><a class="active">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a></div>
 	<ul>
 		<li>
 			<time>
-				<div class="yearAndMonth">2012年8月</div>
-				<div class="date">6日</div>
+				<div class="yearAndMonth">2012.8</div>
+				<div class="date">6</div>
 			</time>
-			<a href="#">lianjie</a>
+			<a href="#">这是一个新的活动内容这是一个新的活动内容这是一个新的活动内容</a>
+		</li>
+		<li>
+			<time>
+				<div class="yearAndMonth">2012.8</div>
+				<div class="date">16</div>
+			</time>
+			<a href="#">这是一个新的活动内容这是一个新的活动内容这是一个新的活动内容</a>
+		</li>
+		<li>
+			<time>
+				<div class="yearAndMonth">2012.11</div>
+				<div class="date">6</div>
+			</time>
+			<a href="#">这是一个新的活动内容这是一个新的活动内容这是一个新的活动内容</a>
+		</li>
+		<li>
+			<time>
+				<div class="yearAndMonth">2012.12</div>
+				<div class="date">13</div>
+			</time>
+			<a href="#">这是一个新的活动内容这是一个新的活动内容这是一个新的活动内容</a>
+		</li>
+		<li>
+			<time>
+				<div class="yearAndMonth">2012.11</div>
+				<div class="date">16</div>
+			</time>
+			<a href="#">这是一个新的活动内容这是一个新的活动内容这是一个新的活动内容</a>
 		</li>
 	</ul>
+	<div class="page"><a class="active">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a></div>
 </section>

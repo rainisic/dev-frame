@@ -25,4 +25,19 @@ public class ActivityController {
 	public String list(Model model, Page page) {
 		return "site.activity.list";
 	}
+	
+	@RequestMapping
+	public String getPablishActivityList(Model model, Page page) {
+		if (page == null) {
+			throw new RuntimeException("无效参数");
+		}
+		if(page.getIndex() < 1 || page.getIndex() > 5000){
+			throw new RuntimeException("无效参数");
+		}
+		if(page.getSize() < 1 || page.getSize() > 500){
+			throw new RuntimeException("无效参数");
+		}
+		return null;
+	}
+
 }
