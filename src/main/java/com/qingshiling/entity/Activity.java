@@ -39,27 +39,27 @@ public class Activity {
 	/**
 	 * Activity title 活动标题
 	 */
-	@Column
+	@Column(nullable = false)
 	private String title;
 	/**
 	 * Activity content 活动内容
 	 */
-	@Column
+	@Column(nullable = false, length=5000)
 	private String content;
 	/**
 	 * Activity publishTime 活动发布时间
 	 */
-	@Column
+	@Column()
 	private Date publishTime;
 	/**
 	 * Activity priority 活动优先级
 	 */
-	@Column
+	@Column(nullable = false)
 	private Integer priority;
 	/**
 	 * Activity status 活动状态
 	 */
-	@Column
+	@Column(nullable = false)
 	private Integer status;
 	
 	/**

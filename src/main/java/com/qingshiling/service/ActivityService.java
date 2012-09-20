@@ -68,5 +68,12 @@ public interface ActivityService {
 	 * @return true or false
 	 */
 	public boolean deleteActivity(Integer id);
+	/**
+	 * 删除垃圾站里的活动（真删）
+	 * @param id
+	 * @author lge
+	 * @return true or false
+	 */
+	public boolean removeActivity(int id);
 
 }

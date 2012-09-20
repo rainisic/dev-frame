@@ -149,4 +149,17 @@ public class ActivityServiceImpl implements ActivityService {
 		return null;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.qingshiling.service.ActivityService#removeActivity(int)
+	 */
+	@Override
+	public boolean removeActivity(int id) {
+		Activity activity = activityDao.get(id);
+		if(activity != null){
+			activityDao.delete(activity);
+			return true;
+		}
+		return false;
+	}
+
 }
