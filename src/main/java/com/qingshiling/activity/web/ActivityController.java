@@ -26,6 +26,11 @@ public class ActivityController {
 		return "site.activity.list";
 	}
 	
+	@RequestMapping("display/{id}")
+	public String display(Model model, Integer id) {
+		return "site.activity.display";
+	}
+	
 	@RequestMapping
 	public String getPablishActivityList(Model model, Page page) {
 		if (page == null) {

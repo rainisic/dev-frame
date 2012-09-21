@@ -1,9 +1,68 @@
 @CHARSET "UTF-8";
-.content ul li { border-bottom: 1px silver dotted; padding: 15px 0px; }
-.content ul li time { display: inline-block; width: 100px; border: 1px gray solid; text-align: center; vertical-align: top; box-shadow: 2px 1px 5px darkgray; }
-.content ul li time .yearAndMonth { height: 30px; line-height: 30px; background-color: #dd0000; color: white; font-weight: bold; margin: 1px; border-radius: 3px; }
-.content ul li time .date { font-size: 28px; height: 50px; line-height: 50px; }
-.content ul li a { display: inline-block; height: 80px; line-height: 80px; vertical-align: top; font-size: 18px; padding: 0 20px; }
-.page { text-align: right; margin-top: 10px; }
-.page a { margin: 10px; font-weight: bold; color: gray; }
-.page a.active { color: orange; }
+
+.content h1 {
+	font-size: 28px;
+	letter-spacing: 0.5em;
+	text-align: center;
+}
+
+.content hr {
+	width: 700px;
+}
+
+.content ul li {
+	border-bottom: 1px silver dotted;
+	padding: 15px 0px;
+}
+
+.content ul li time {
+	border: 1px gray solid;
+	box-shadow: 2px 1px 5px darkgray;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	width: 100px;
+	text-align: center;
+	vertical-align: top;
+	background-color: white;
+}
+
+.content ul li time .yearAndMonth {
+	height: 30px;
+	line-height: 30px;
+	background-color: #dd0000;
+	color: white;
+	font-weight: bold;
+	margin: 1px;
+	border-radius: 3px;
+}
+
+.content ul li time .date {
+	font-size: 28px;
+	height: 50px;
+	line-height: 50px;
+}
+
+.content ul li a {
+	display: inline-block;
+	height: 80px;
+	line-height: 80px;
+	vertical-align: top;
+	font-size: 18px;
+	padding: 0 20px;
+}
+
+.page {
+	text-align: right;
+	margin-top: 20px;
+}
+
+.page a {
+	margin: 10px;
+	font-weight: bold;
+	color: gray;
+}
+
+.page a.active {
+	color: orange;
+}

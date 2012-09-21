@@ -17,9 +17,7 @@
 
 .topics { margin: 20px 0px; }
 .topics header { border-bottom: 1px silver solid; }
-.topics h1 { font-size: 20px; font-weight: normal; border-left: 5px orange solid; padding-left: 10px; margin: 10px 0; }
-.topics h2 { font-size: 18px; font-weight: normal; }
-.topics ul { }
+.topics h1 { font-size: 20px; border-left: 5px orange solid; padding-left: 10px; margin: 10px 0; }
 .topics ul li { list-style: inside circle; padding: 10px 30px; border-bottom: 1px silver dashed; }
 .topics ul li:nth-child(odd) { background-color: #EEEEFF; }
 .topics ul li:nth-child(even) { background-color: #FFFFEE; }

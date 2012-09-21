@@ -6,6 +6,7 @@ a { text-decoration: none; color: black; border: none; }
 ul, li { margin: 0px; padding: 0px; list-style: none; }
 figure { display: block; margin: 0; padding: 0; border: none; }
 img { border: none; }
+h1, h2, h3, h4, h5, h6 { font-family: "宋体", Serif; }
 
 .limit { width: 960px; margin: 0 auto; padding-bottom: 30px; }
 
@@ -18,7 +19,7 @@ img { border: none; }
 .site-header .navigator ul li a:hover { background-color: #007dbc; }
 .site-header .navigator ul li a.active { background-color: #005588; }
 
-.main-section { background-color: white; border: 1px darkgray solid; box-shadow: 0px 0px 20px #666666; }
+.main-section { border: 1px darkgray solid; box-shadow: 0px 0px 20px #666666; background: url("/static/qingshiling/images/b.png") repeat; }
 .main-section .content { padding: 20px; }
 
 .site-footer { text-align: center; padding: 10px; font-size: 12px; color: gray; }
