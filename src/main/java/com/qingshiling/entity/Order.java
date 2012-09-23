@@ -13,6 +13,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * 订票实体类
@@ -20,6 +21,7 @@ import javax.persistence.Id;
  *
  */
 @Entity
+@Table(name = "ticket_order")
 public class Order {
 	/**
 	 * id
@@ -30,7 +32,6 @@ public class Order {
 	/**
 	 * 订票数量
 	 */
-	@Column
 	private int orderNumber;
 	/**
 	 * 票的种类
@@ -45,12 +46,10 @@ public class Order {
 	/**
 	 * qq号码
 	 */
-	@Column
 	private String qq;
 	/**
 	 * 留言
 	 */
-	@Column
 	private String message;
 	/**
 	 * 真实姓名
@@ -60,12 +59,10 @@ public class Order {
 	/**
 	 * 电子邮箱
 	 */
-	@Column
 	private String email;
 	/**
 	 * 下单日期
 	 */
-	@Column
 	private Date createTime;
 	
 	

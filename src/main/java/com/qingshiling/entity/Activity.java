@@ -49,7 +49,6 @@ public class Activity {
 	/**
 	 * Activity publishTime 活动发布时间
 	 */
-	@Column()
 	private Date publishTime;
 	/**
 	 * Activity priority 活动优先级
