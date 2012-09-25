@@ -1,10 +1,10 @@
 /* @(#) AlbumController.java
  * Project:	dev-frame
- * Package:	com.qingshiling.album.web
+ * Package:	com.qingshiling.web.album
  * Author:	Rainisic
  * Copyright © 2012 by Rain Rhyme Internet Studio. All rights reserved.
  */
-package com.qingshiling.album.web;
+package com.qingshiling.web.album;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

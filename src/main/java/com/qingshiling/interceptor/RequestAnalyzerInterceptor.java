@@ -25,20 +25,7 @@ public class RequestAnalyzerInterceptor extends HandlerInterceptorAdapter {
 			HttpServletResponse response, Object handler) throws Exception {
 		
 		// Set the page forum according the request URI.
-		if (request.getRequestURI().startsWith("/index")) {
-			request.setAttribute("forum", "index");
-		} else if (request.getRequestURI().startsWith("/introduction/")) {
-			request.setAttribute("forum", "introduction");
-		} else if (request.getRequestURI().startsWith("/activity/")) {
-			request.setAttribute("forum", "activity");
-		} else if (request.getRequestURI().startsWith("/ticket/")) {
-			request.setAttribute("forum", "ticket");
-		} else if (request.getRequestURI().startsWith("/direction/")) {
-			request.setAttribute("forum", "direction");
-		} else if (request.getRequestURI().startsWith("/about/")) {
-			request.setAttribute("forum", "about");
-		}
-		
+		request.setAttribute("forum", request.getRequestURI().split("/")[1]);
 		return true;
 	}
 }

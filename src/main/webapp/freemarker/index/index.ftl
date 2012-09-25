@@ -5,11 +5,11 @@
 <section class="content">
 	<div class="gallery">
 		<figure>
-			<a href="#"><img src="${ project.staticDomain! }/${ project.name! }/images/1.jpg"></a>
-			<a href="#"><img src="${ project.staticDomain! }/${ project.name! }/images/2.jpg"></a>
-			<a href="#"><img src="${ project.staticDomain! }/${ project.name! }/images/3.jpg"></a>
-			<a href="#"><img src="${ project.staticDomain! }/${ project.name! }/images/4.jpg"></a>
-			<a href="#"><img src="${ project.staticDomain! }/${ project.name! }/images/5.jpg"></a>
+			<a href="/album/list.html"><img src="${ project.staticDomain! }/${ project.name! }/images/1.jpg"></a>
+			<a href="/album/list.html"><img src="${ project.staticDomain! }/${ project.name! }/images/2.jpg"></a>
+			<a href="/album/list.html"><img src="${ project.staticDomain! }/${ project.name! }/images/3.jpg"></a>
+			<a href="/album/list.html"><img src="${ project.staticDomain! }/${ project.name! }/images/4.jpg"></a>
+			<a href="/album/list.html"><img src="${ project.staticDomain! }/${ project.name! }/images/5.jpg"></a>
 		</figure>
 		<div class="layer">
 			<img class="active" src="${ project.staticDomain! }/${ project.name! }/images/1.jpg">
@@ -22,17 +22,17 @@
 	<aside class="quicklunch">
 		<p class="info">
 			<em>惊险漂流，自主烧烤，真人CS…查看更多活动，请<b>猛击↓这里</b>！</em>
-			<a class="go-button" href="#">活动详情</a>
+			<a class="go-button" href="/activity/page/1.html">活动详情</a>
 		</p>
 		<hr size="1px">
 		<p class="order">
 			<em>已经心动啦？想要提前预订您的精彩旅行生活，请<b>猛击↓这里</b>！</em>
-			<a class="go-button" href="#">立刻订票</a>
+			<a class="go-button" href="/order/create.html">立刻订票</a>
 		</p>
 		<hr size="1px">
 		<p class="direction">
 			<em>已经订票？OK，快来开始我们的快乐旅途！请最后<b>猛击↓这里</b>！</em>
-			<a class="go-button" href="#">如何前往</a>
+			<a class="go-button" href="/direction.html">如何前往</a>
 		</p>
 	</aside>
 	<section class="topics">
