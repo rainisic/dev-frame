@@ -9,56 +9,52 @@ package com.qingshiling.dao;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.frame.dao.AdvancedHibernateDao;
 import com.frame.vo.Page;
+import com.qingshiling.constant.ActivityStatus;
 import com.qingshiling.entity.Activity;
 
 /**
- * @author lge
+ * Activity data access object.
  * 
+ * @author lge (Review and modified by rainisic in Sep 26 2012)
+ * @version 1.0.0
+ * @since 1.0.0
  */
 @Repository
 public class ActivityDao extends AdvancedHibernateDao<Activity> {
-	
-	/**
-	 * 将hibernateTemplate注入到DAO层
-	 */
-	@Resource
-	HibernateTemplate hibernateTemplate;
 
 	/**
-	 * 查询发布的活动列表
+	 * List activity by activity status and paging the result.
 	 * 
-	 * @author lge
-	 * @return List<Activity>
+	 * @param status
+	 *            activity status.
+	 * 
+	 * @param page
+	 *            page.
+	 * @return expected activity list.
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Activity> findPublishActivityList(Page page) {
-		DetachedCriteria crit = DetachedCriteria.forClass(Activity.class);
-		crit.add(Restrictions.eq("status", Activity.PUBLISH));
-		return super.getHibernateTemplate().findByCriteria(crit,
-				(page.getIndex() - 1) * page.getSize(), page.getSize());
-	}
+	public List<Activity> listActivity(ActivityStatus status, Page page) {
+		
+		// Create criteria.
+		DetachedCriteria criteria = DetachedCriteria.forClass(Activity.class);
 
-	/**
-	 * 查询删除了的活动列表
-	 * 
-	 * @author lge
-	 * @return List<Activity>
-	 */
-	@SuppressWarnings("unchecked")
-	public List<Activity> findDeletedActivityList(Page page) {
-		DetachedCriteria crit = DetachedCriteria.forClass(Activity.class);
-		crit.add(Restrictions.eq("status", Activity.DELETE));
-		return super.getHibernateTemplate().findByCriteria(crit,
-				(page.getIndex() - 1) * page.getSize(), page.getSize());
-	}
+		// Add ActivityStatus restriction.
+		if (status != null) {
+			criteria.add(Restrictions.eq("status", status));
+		}
 
+		// Paging.
+		if (page != null) {
+			return hibernateTemplate.findByCriteria(criteria,
+					(page.getIndex() - 1) * page.getSize(), page.getSize());
+		} else {
+			return hibernateTemplate.findByCriteria(criteria);
+		}
+	}
 }

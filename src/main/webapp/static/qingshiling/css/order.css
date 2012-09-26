@@ -5,7 +5,7 @@
 .content form p { vertical-align: middle; }
 .content form label { display: inline-block; *display: inline; *zoom: 1; width: 80px; height: 25px; text-align: right; margin-right: 10px; }
 .content form input { width: 200px; padding: 5px; border: 1px silver solid; }
-.content form textarea { width: 500px; height: 200px; resize: none; }
+.content form textarea { width: 500px; height: 200px; resize: none; border: 1px silver solid; }
 
 .content form input.go-button { text-align: center; width: 155px; height: 39px; background: url("/static/qingshiling/images/go-button.png") 0 -39px no-repeat; font-size: 15px; font-weight: bold; color: black; text-shadow: 2px 1px 3px darkgray; border: none; cursor: pointer; margin: 0 10px; }
 .content form input.go-button:hover {  background: url("/static/qingshiling/images/go-button.png") 0 0 no-repeat; }

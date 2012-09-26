@@ -10,70 +10,144 @@ package com.qingshiling.service;
 import java.util.List;
 
 import com.frame.vo.Page;
+import com.qingshiling.constant.ActivityStatus;
 import com.qingshiling.entity.Activity;
 
 /**
- * 处理优惠活动的接口
- * @author lge
- *
+ * Activity service interface. Provide business processor for controller.
+ * 
+ * @author lge (Review and modified by rainisic in Sep 26 2012)
+ * @version 1.0.0
+ * @since 1.0.0
  */
 public interface ActivityService {
+
 	/**
-	 * 根据id查询单个活动
+	 * Get the activity by the given id.
+	 * 
 	 * @param id
-	 * @author lge
-	 * @return Activity
+	 *            the activity id.
+	 * @return expected activity.
 	 */
-	public Activity getActivity(Integer id);
+	public Activity display(int id);
+
 	/**
-	 * 得到优惠活动列表，通过分页
+	 * Get the activities and paging by the page.
+	 * 
 	 * @param page
-	 * @author lge
-	 * @return List<Activity>
+	 *            pager.
+	 * @return expected activity list.
 	 */
-	public List<Activity> getActivityListToPage(Page page);
+	public List<Activity> list(Page page);
+
 	/**
-	 * 得到发布的优惠活动列表
+	 * Get the activities in the given status and paging by the page.
+	 * 
+	 * @param status
+	 *            activities status.
 	 * @param page
-	 * @author lge
-	 * @return List<Activity>
+	 *            pager
+	 * @return expected activity list.
 	 */
-	public List<Activity> getPublishActivityList(Page page);
+	public List<Activity> list(ActivityStatus status, Page page);
+
 	/**
-	 * 得到删除的优惠活动列表
-	 * @param page
-	 * @author lge
-	 * @return List<Activity>
-	 */
-	public List<Activity> getDeletedActivityList(Page page);
-	/**
-	 * 保存新活动
+	 * Load activity by id and update it.
+	 * 
 	 * @param activity
-	 * @author lge
-	 * @return true or false
+	 *            activity contains new content.
+	 * @return persistent activity.
 	 */
-	public boolean saveNewActivity(Activity activity);
-	
+	public Activity update(Activity activity);
+
 	/**
-	 * 修改活动
-	 * @param activity
-	 * @author lge
-	 * @return Activity
+	 * Load the activity by id and set status to the given status.
+	 * 
+	 * @param status
+	 *            activity status.
+	 * @return update status success or not.
 	 */
-	public Activity updateActivity(Activity activity);
+	public boolean updateStatus(int id, ActivityStatus status);
+
 	/**
-	 * 删除活动（假删）
+	 * Delete activity by given id.
+	 * 
 	 * @param id
-	 * @author lge
-	 * @return true or false
+	 *            activity id to delete.
+	 * @return delete success or not.
 	 */
-	public boolean deleteActivity(Integer id);
-	/**
-	 * 删除垃圾站里的活动（真删）
-	 * @param id
-	 * @author lge
-	 * @return true or false
-	 */
-	public boolean removeActivity(int id);
+	public boolean delete(int id);
+//
+//	/**
+//	 * 根据id查询单个活动
+//	 * 
+//	 * @param id
+//	 * @author lge
+//	 * @return Activity
+//	 */
+//	public Activity getActivity(Integer id);
+//
+//	/**
+//	 * 得到优惠活动列表，通过分页
+//	 * 
+//	 * @param page
+//	 * @author lge
+//	 * @return List<Activity>
+//	 */
+//	public List<Activity> getActivityListToPage(Page page);
+//
+//	/**
+//	 * 得到发布的优惠活动列表
+//	 * 
+//	 * @param page
+//	 * @author lge
+//	 * @return List<Activity>
+//	 */
+//	public List<Activity> getPublishActivityList(Page page);
+//
+//	/**
+//	 * 得到删除的优惠活动列表
+//	 * 
+//	 * @param page
+//	 * @author lge
+//	 * @return List<Activity>
+//	 */
+//	public List<Activity> getDeletedActivityList(Page page);
+//
+//	/**
+//	 * 保存新活动
+//	 * 
+//	 * @param activity
+//	 * @author lge
+//	 * @return true or false
+//	 */
+//	public boolean saveNewActivity(Activity activity);
+//
+//	/**
+//	 * 修改活动
+//	 * 
+//	 * @param activity
+//	 * @author lge
+//	 * @return Activity
+//	 */
+//	public Activity updateActivity(Activity activity);
+//
+//	/**
+//	 * 删除活动（假删）
+//	 * 
+//	 * @param id
+//	 * @author lge
+//	 * @return true or false
+//	 */
+//	public boolean deleteActivity(Integer id);
+//
+//	/**
+//	 * 删除垃圾站里的活动（真删）
+//	 * 
+//	 * @param id
+//	 * @author lge
+//	 * @return true or false
+//	 */
+//	public boolean removeActivity(int id);
 
 }

@@ -9,6 +9,35 @@
 			<em>这是用于展示的默认相册，如果你没有选择任何相册，那么图片将会被归档至此.</em>
 		</div>
 	</figure>
+	<figure class="album">
+		<img src="${ project.staticDomain! }/${ project.name! }/images/1.jpg">
+		<figcaption>默认相册</figcaption>
+		<div>
+			<em>这是用于展示的默认相册，如果你没有选择任何相册，那么图片将会被归档至此.</em>
+		</div>
+	</figure>
+	<figure class="album">
+		<img src="${ project.staticDomain! }/${ project.name! }/images/1.jpg">
+		<figcaption>默认相册</figcaption>
+		<div>
+			<em>这是用于展示的默认相册，如果你没有选择任何相册，那么图片将会被归档至此.</em>
+		</div>
+	</figure>
+	<figure class="album">
+		<img src="${ project.staticDomain! }/${ project.name! }/images/1.jpg">
+		<figcaption>默认相册</figcaption>
+		<div>
+			<em>这是用于展示的默认相册，如果你没有选择任何相册，那么图片将会被归档至此.</em>
+		</div>
+	</figure>
+	
+	<figure class="album">
+		<img src="${ project.staticDomain! }/${ project.name! }/images/1.jpg">
+		<figcaption>默认相册</figcaption>
+		<div>
+			<em>这是用于展示的默认相册，如果你没有选择任何相册，那么图片将会被归档至此.</em>
+		</div>
+	</figure>
 	<span class="album justify-fix"></span>
 	<span class="album justify-fix"></span>
 	<span class="album justify-fix"></span>

@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" href="${ project.staticDomain! }/${ project.name! }/css/order.css">
 <section class="content">
-	<h1>提交订单</h1>
+	<h1>新建订单</h1>
 	<form action="" method="post">
 		<p class="gray">订单说明：</p>
 		<p class="gray indent">请填写真实有效的个人信息，以保证您的订单更快速的被管理员审核通过。</p>
