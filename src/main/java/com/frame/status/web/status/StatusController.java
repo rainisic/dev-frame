@@ -1,10 +1,10 @@
 /* @(#) StatusController.java
  * Project:	dev-frame
- * Package:	com.frame.status.web
+ * Package:	com.frame.status.web.status
  * Author:	Rainisic
  * Copyright © 2012 by Rain Rhyme Internet Studio. All rights reserved.
  */
-package com.frame.status.web;
+package com.frame.status.web.status;
 
 import javax.annotation.Resource;
 
