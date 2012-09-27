@@ -7,21 +7,28 @@
  */
 package com.qingshiling.service.impl;
 
-import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
+
 import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
-import com.frame.vo.Page;
+
 import com.qingshiling.dao.OrderDao;
 import com.qingshiling.entity.Order;
 import com.qingshiling.service.OrderService;
 
 /**
- * @author lge
+ * Process order ticket business service.
  * 
+ * @author lge
+ * @version 1.0.0
+ * @since 1.0.0
  */
 @Service
 public class OrderServiceImpl implements OrderService {
+
+	/** Order data access object. */
 	@Resource
 	private OrderDao orderDao;
 
@@ -29,28 +36,32 @@ public class OrderServiceImpl implements OrderService {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * com.qingshiling.service.OrderService#saveOrder(com.qingshiling.entity
-	 * .Order)
+	 * com.qingshiling.service.OrderService#save(com.qingshiling.entity.Order)
 	 */
 	@Override
-	public void saveOrder(Order order) {
-		order.setCreateTime(new Date());
+	public void save(Order order) {
+		
+		// Get current date and time. 
+		order.setCreateTime(Calendar.getInstance().getTime());
 		orderDao.save(order);
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see com.qingshiling.service.OrderService#deleteOrder(int[])
+	 * @see com.qingshiling.service.OrderService#delete(int)
 	 */
 	@Override
-	public boolean deleteOrder(int[] idItem) {
-		for (int i = 0; i < idItem.length; i++) {
-			Order order = orderDao.get(idItem[i]);
-			if (order != null) {
-				orderDao.delete(order);
-				return true;
-			}
+	public boolean delete(int id) {
+
+		// Get the order.
+		Order order = orderDao.get(id);
+
+		if (order != null) {
+
+			// Delete the order. In actually, just change the order status.
+			orderDao.delete(order);
+			return true;
 		}
 		return false;
 	}
@@ -58,17 +69,10 @@ public class OrderServiceImpl implements OrderService {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * com.qingshiling.service.OrderService#findOrderList(com.frame.vo.Page)
+	 * @see com.qingshiling.service.OrderService#list()
 	 */
 	@Override
-	public List<Order> findOrderList(Page page) {
-		List<Order> order = orderDao.list(
-				(page.getIndex() - 1) * page.getSize(), page.getSize());
-		if (order != null) {
-			return order;
-		}
+	public List<Order> list() {
 		return null;
 	}
-
 }

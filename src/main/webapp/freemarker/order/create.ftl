@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="${ project.staticDomain! }/${ project.name! }/css/order.css">
 <section class="content">
 	<h1>新建订单</h1>
-	<form action="" method="post">
+	<form id="publishOrderForm" action="/order/publish.html" method="post">
 		<p class="gray">订单说明：</p>
 		<p class="gray indent">请填写真实有效的个人信息，以保证您的订单更快速的被管理员审核通过。</p>
 		<p class="gray indent mb-20">审核通过的订单，将由我处通过您的联系方式与您联系。</p>
@@ -31,3 +31,7 @@
 		</p>
 	</form>
 </section>
+<script type="text/javascript" src="${ project.staticDomain! }/common/js/jquery-form/jquery.form.js"></script>
+<script type="text/javascript" src="${ project.staticDomain! }/common/js/jquery-blockui/jquery.blockUI.js"></script>
+<script type="text/javascript" src="${ project.staticDomain! }/${ project.name! }/js/order-create.js">
+</script>

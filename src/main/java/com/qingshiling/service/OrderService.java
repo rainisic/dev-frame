@@ -9,33 +9,35 @@ package com.qingshiling.service;
 
 import java.util.List;
 
-import com.frame.vo.Page;
 import com.qingshiling.entity.Order;
 
 /**
  * @author lge
- *
+ * 
  */
 public interface OrderService {
-	
-	/**
-	 * 保存订票信息
-	 * @param order
-	 * @author lge
-	 * @return
-	 */
-	public void saveOrder(Order order);
-	/**
-	 * 根据订单id数组 删除订单
-	 * @param id
-	 * @return
-	 */
-	public boolean deleteOrder(int[] idItem);
-	/**
-	 * 分页查询订票信息列表
-	 * @param page
-	 * @return
-	 */
-	public List<Order> findOrderList(Page page);
 
+	/**
+	 * Save a new order.
+	 * 
+	 * @param order
+	 *            order to save.
+	 */
+	public void save(Order order);
+
+	/**
+	 * Delete an order.
+	 * 
+	 * @param id
+	 *            order id.
+	 * @return delete success or not.
+	 */
+	public boolean delete(int id);
+
+	/**
+	 * List all order.
+	 * 
+	 * @return expected order list.
+	 */
+	public List<Order> list();
 }
