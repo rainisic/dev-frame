@@ -14,13 +14,13 @@
 			<div class="logo"></div>
 			<nav class="navigator">
 				<ul>
-					<li><a <#if forum?? && forum == "index.html" >class="active"<#else>href="/index.html"</#if>>首页</a></li>
-					<li><a <#if forum?? && forum == "introduction.html" >class="active"<#else>href="/introduction.html"</#if>>白河漂流</a></li>
-					<li><a <#if forum?? && forum == "album" >class="active"<#else>href="/album/list.html"</#if>>漂流风采</a></li>
-					<li><a <#if forum?? && forum == "activity" >class="active"<#else>href="/activity/page/1.html"</#if>>活动详情</a></li>
-					<li><a <#if forum?? && forum == "order" >class="active"<#else>href="/order/create.html"</#if>>预约订票</a></li>
-					<li><a <#if forum?? && forum == "direction.html" >class="active"<#else>href="/direction.html"</#if>>如何前往</a></li>
-					<li><a <#if forum?? && forum == "about.html" >class="active"<#else>href="/about.html"</#if>>关于我们</a></li>
+					<li><a <#if forum?? && forum == "index.html" >class="active"</#if> href="/index.html">首页</a></li>
+					<li><a <#if forum?? && forum == "introduction.html" >class="active"</#if> href="/introduction.html">白河漂流</a></li>
+					<li><a <#if forum?? && forum == "album" >class="active"</#if> href="/album/list.html">漂流风采</a></li>
+					<li><a <#if forum?? && forum == "activity" >class="active"</#if> href="/activity/page/1.html">活动详情</a></li>
+					<li><a <#if forum?? && forum == "order" >class="active"</#if> href="/order/create.html">预约订票</a></li>
+					<li><a <#if forum?? && forum == "direction.html" >class="active"</#if> href="/direction.html">如何前往</a></li>
+					<li><a <#if forum?? && forum == "about.html" >class="active"</#if> href="/about.html">关于我们</a></li>
 				</ul>
 			</nav>
 		</header>

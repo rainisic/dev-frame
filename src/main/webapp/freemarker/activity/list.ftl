@@ -13,5 +13,9 @@
 			</li>
 		</#list>
 	</ul>
-	<div class="page"><a class="active">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a></div>
+	<div class="page">
+		<#list 1..page.count as i>
+			<a <#if i == page.index>class="active"<#else>href="/activity/page/${ i }.html"</#if>>${ i }</a>
+		</#list>
+	</div>
 </section>

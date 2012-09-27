@@ -10,6 +10,7 @@ package com.qingshiling.dao;
 import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
@@ -40,7 +41,7 @@ public class ActivityDao extends AdvancedHibernateDao<Activity> {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Activity> listActivity(ActivityStatus status, Page page) {
-		
+
 		// Create criteria.
 		DetachedCriteria criteria = DetachedCriteria.forClass(Activity.class);
 
@@ -56,5 +57,27 @@ public class ActivityDao extends AdvancedHibernateDao<Activity> {
 		} else {
 			return hibernateTemplate.findByCriteria(criteria);
 		}
+	}
+
+	/**
+	 * Get total row count of that activity is in given status.
+	 * 
+	 * @param status
+	 *            activity status.
+	 * @return row count.
+	 */
+	public int count(ActivityStatus status) {
+
+		// Create criteria.
+		DetachedCriteria criteria = DetachedCriteria.forClass(Activity.class);
+
+		// Check status.
+		if (status != null) {
+			criteria.add(Restrictions.eq("status", status));
+		}
+
+		return ((Long) hibernateTemplate
+				.findByCriteria(criteria.setProjection(Projections.rowCount()))
+				.iterator().next()).intValue();
 	}
 }

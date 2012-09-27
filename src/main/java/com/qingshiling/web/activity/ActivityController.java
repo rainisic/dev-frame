@@ -45,12 +45,17 @@ public class ActivityController {
 	@RequestMapping("page/{index}")
 	public String list(Model model, Page page) {
 
+		// Paging activities.
+		page = activityServiceImpl.paging(ActivityStatus.PUBLISHED,
+				page.getIndex());
+
 		// Get the activities.
 		List<Activity> activities = activityServiceImpl.list(
 				ActivityStatus.PUBLISHED, page);
 
 		// Put values to request.
 		model.addAttribute("activities", activities);
+		model.addAttribute("page", page);
 		model.addAttribute("pageTitle", "活动列表");
 		return "site.activity.list";
 	}
@@ -63,10 +68,10 @@ public class ActivityController {
 	 * @return
 	 */
 	@RequestMapping("display/{id}")
-	public String display(Model model, Integer id) {
+	public String display(Model model, Activity activity) {
 
 		// Get the activity.
-		Activity activity = activityServiceImpl.display(id);
+		activity = activityServiceImpl.display(activity.getId());
 
 		// Put values to request.
 		model.addAttribute("activity", activity);

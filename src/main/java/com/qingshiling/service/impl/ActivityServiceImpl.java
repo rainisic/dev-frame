@@ -68,9 +68,13 @@ public class ActivityServiceImpl implements ActivityService {
 	public List<Activity> list(ActivityStatus status, Page page) {
 		return activityDao.listActivity(status, page);
 	}
-	
-	/* (non-Javadoc)
-	 * @see com.qingshiling.service.ActivityService#save(com.qingshiling.entity.Activity)
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.qingshiling.service.ActivityService#save(com.qingshiling.entity.Activity
+	 * )
 	 */
 	@Override
 	public void save(Activity activity) {
@@ -86,17 +90,17 @@ public class ActivityServiceImpl implements ActivityService {
 	 */
 	@Override
 	public Activity update(Activity activity) {
-		
+
 		// Load persistent activity by the given activity id.
 		Activity persistentActivity = activityDao.get(activity.getId());
-		
+
 		// Update values.
 		persistentActivity.setTitle(activity.getTitle());
 		persistentActivity.setContent(activity.getContent());
 		persistentActivity.setPriority(activity.getPriority());
 		persistentActivity.setStatus(activity.getStatus());
 		persistentActivity.setPublishTime(activity.getPublishTime());
-		
+
 		return persistentActivity;
 	}
 
@@ -111,14 +115,14 @@ public class ActivityServiceImpl implements ActivityService {
 
 		// Load persistent activity by the given activity id.
 		Activity persistentActivity = activityDao.get(id);
-		
+
 		if (persistentActivity != null) {
-			
+
 			// Update status..
 			persistentActivity.setStatus(status);
 			return true;
 		}
-		
+
 		return false;
 	}
 
@@ -129,12 +133,12 @@ public class ActivityServiceImpl implements ActivityService {
 	 */
 	@Override
 	public boolean delete(int id) {
-		
+
 		// Load persistent activity by the given activity id.
 		Activity persistentActivity = activityDao.get(id);
-		
+
 		if (persistentActivity != null) {
-			
+
 			// Delete current activity.
 			activityDao.delete(persistentActivity);
 			return true;
@@ -143,15 +147,45 @@ public class ActivityServiceImpl implements ActivityService {
 	}
 	
 	/* (non-Javadoc)
-	 * @see com.qingshiling.service.ActivityService#pageCount()
+	 * @see com.qingshiling.service.ActivityService#paging(int)
 	 */
 	@Override
-	public Page paging() {
-		Page page = new Page();
-		page.setIndex(1);
-		page.setSize(Integer.parseInt(ApplicationConfiguration.getProperty("page.size")));
-		page.setCount(activityDao.count() / page.getSize());
-		return null;
+	public Page paging(int index) {
+		
+		// Count page.
+		Page page = new Page(activityDao.count(),
+				Integer.parseInt(ApplicationConfiguration
+						.getProperty("page.size")));
+		
+		// Set index.
+		if (index == 0) {
+			page.setIndex(1);
+		} else {
+			page.setIndex(index);
+		}
+		return page;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.qingshiling.service.ActivityService#paging(int)
+	 */
+	@Override
+	public Page paging(ActivityStatus status, int index) {
+		
+		// Count page.
+		Page page = new Page(activityDao.count(status),
+				Integer.parseInt(ApplicationConfiguration
+						.getProperty("page.size")));
+		
+		// Set index.
+		if (index == 0) {
+			page.setIndex(1);
+		} else {
+			page.setIndex(index);
+		}
+		return page;
 	}
 
 	// /*

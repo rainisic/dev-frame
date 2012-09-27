@@ -1,0 +1,11 @@
+@CHARSET "UTF-8";
+.content .breadcrumb-list { color: black; }
+.content .breadcrumb-list a { color: #0000ff; }
+.content .breadcrumb-list a:hover { color: #ff0000; }
+.content header { text-align: center; position: relative; height: 100px; line-height: 100px; }
+.content header time { position: absolute; right: 0px; top: 0px; width: 100px; border: 1px gray solid; text-align: center; vertical-align: top; box-shadow: 2px 1px 5px darkgray; background-color: white; }
+.content header time .yearAndMonth { height: 30px; line-height: 30px; background-color: #dd0000; color: white; font-weight: bold; margin: 1px; border-radius: 3px; }
+.content header time .date { font-size: 28px; height: 50px; line-height: 50px; }
+.content header h1 { font-size: 25px; letter-spacing: 5px; text-align: center; margin: 10px 0; }
+.content header div { color: gray; }
+.content section { letter-spacing: 0.2em; text-indent: 2em; padding: 20px; }

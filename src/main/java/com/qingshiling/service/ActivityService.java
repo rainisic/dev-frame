@@ -91,7 +91,15 @@ public interface ActivityService {
 	 * 
 	 * @return page.
 	 */
-	public Page paging();
+	public Page paging(int index);
+	
+	/**
+	 * Load paging information of activities in given status.
+	 * @param status
+	 * @param index
+	 * @return
+	 */
+	public Page paging(ActivityStatus status, int index);
 
 	//
 	// /**
