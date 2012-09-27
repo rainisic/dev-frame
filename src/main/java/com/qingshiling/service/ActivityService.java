@@ -52,6 +52,14 @@ public interface ActivityService {
 	public List<Activity> list(ActivityStatus status, Page page);
 
 	/**
+	 * Save an activity.
+	 * 
+	 * @param activity
+	 *            activity to save.
+	 */
+	public void save(Activity activity);
+
+	/**
 	 * Load activity by id and update it.
 	 * 
 	 * @param activity
@@ -77,77 +85,85 @@ public interface ActivityService {
 	 * @return delete success or not.
 	 */
 	public boolean delete(int id);
-//
-//	/**
-//	 * 根据id查询单个活动
-//	 * 
-//	 * @param id
-//	 * @author lge
-//	 * @return Activity
-//	 */
-//	public Activity getActivity(Integer id);
-//
-//	/**
-//	 * 得到优惠活动列表，通过分页
-//	 * 
-//	 * @param page
-//	 * @author lge
-//	 * @return List<Activity>
-//	 */
-//	public List<Activity> getActivityListToPage(Page page);
-//
-//	/**
-//	 * 得到发布的优惠活动列表
-//	 * 
-//	 * @param page
-//	 * @author lge
-//	 * @return List<Activity>
-//	 */
-//	public List<Activity> getPublishActivityList(Page page);
-//
-//	/**
-//	 * 得到删除的优惠活动列表
-//	 * 
-//	 * @param page
-//	 * @author lge
-//	 * @return List<Activity>
-//	 */
-//	public List<Activity> getDeletedActivityList(Page page);
-//
-//	/**
-//	 * 保存新活动
-//	 * 
-//	 * @param activity
-//	 * @author lge
-//	 * @return true or false
-//	 */
-//	public boolean saveNewActivity(Activity activity);
-//
-//	/**
-//	 * 修改活动
-//	 * 
-//	 * @param activity
-//	 * @author lge
-//	 * @return Activity
-//	 */
-//	public Activity updateActivity(Activity activity);
-//
-//	/**
-//	 * 删除活动（假删）
-//	 * 
-//	 * @param id
-//	 * @author lge
-//	 * @return true or false
-//	 */
-//	public boolean deleteActivity(Integer id);
-//
-//	/**
-//	 * 删除垃圾站里的活动（真删）
-//	 * 
-//	 * @param id
-//	 * @author lge
-//	 * @return true or false
-//	 */
-//	public boolean removeActivity(int id);
+
+	/**
+	 * Load page information.
+	 * 
+	 * @return page.
+	 */
+	public Page paging();
+
+	//
+	// /**
+	// * 根据id查询单个活动
+	// *
+	// * @param id
+	// * @author lge
+	// * @return Activity
+	// */
+	// public Activity getActivity(Integer id);
+	//
+	// /**
+	// * 得到优惠活动列表，通过分页
+	// *
+	// * @param page
+	// * @author lge
+	// * @return List<Activity>
+	// */
+	// public List<Activity> getActivityListToPage(Page page);
+	//
+	// /**
+	// * 得到发布的优惠活动列表
+	// *
+	// * @param page
+	// * @author lge
+	// * @return List<Activity>
+	// */
+	// public List<Activity> getPublishActivityList(Page page);
+	//
+	// /**
+	// * 得到删除的优惠活动列表
+	// *
+	// * @param page
+	// * @author lge
+	// * @return List<Activity>
+	// */
+	// public List<Activity> getDeletedActivityList(Page page);
+	//
+	// /**
+	// * 保存新活动
+	// *
+	// * @param activity
+	// * @author lge
+	// * @return true or false
+	// */
+	// public boolean saveNewActivity(Activity activity);
+	//
+	// /**
+	// * 修改活动
+	// *
+	// * @param activity
+	// * @author lge
+	// * @return Activity
+	// */
+	// public Activity updateActivity(Activity activity);
+	//
+	// /**
+	// * 删除活动（假删）
+	// *
+	// * @param id
+	// * @author lge
+	// * @return true or false
+	// */
+	// public boolean deleteActivity(Integer id);
+	//
+	// /**
+	// * 删除垃圾站里的活动（真删）
+	// *
+	// * @param id
+	// * @author lge
+	// * @return true or false
+	// */
+	// public boolean removeActivity(int id);
 
 }

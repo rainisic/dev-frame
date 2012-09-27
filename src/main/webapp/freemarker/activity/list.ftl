@@ -6,10 +6,10 @@
 		<#list activities as active>
 			<li>
 				<time>
-					<div class="yearAndMonth">2012.8</div>
-					<div class="date">6</div>
+					<div class="yearAndMonth">${ active.publishTime?string("yyyy-MM") }</div>
+					<div class="date">${ active.publishTime?string("dd") }</div>
 				</time>
-				<a href="/activity/display/1.html">这是一个新的活动内容这是一个新的活动内容这是一个新的活动内容</a>
+				<a href="/activity/display/${ active.id }.html">${ active.title }</a>
 			</li>
 		</#list>
 	</ul>

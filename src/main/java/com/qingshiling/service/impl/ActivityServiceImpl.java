@@ -13,6 +13,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.frame.util.ApplicationConfiguration;
 import com.frame.vo.Page;
 import com.qingshiling.constant.ActivityStatus;
 import com.qingshiling.dao.ActivityDao;
@@ -66,6 +67,14 @@ public class ActivityServiceImpl implements ActivityService {
 	@Override
 	public List<Activity> list(ActivityStatus status, Page page) {
 		return activityDao.listActivity(status, page);
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.qingshiling.service.ActivityService#save(com.qingshiling.entity.Activity)
+	 */
+	@Override
+	public void save(Activity activity) {
+		activityDao.save(activity);
 	}
 
 	/*
@@ -131,6 +140,18 @@ public class ActivityServiceImpl implements ActivityService {
 			return true;
 		}
 		return false;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.qingshiling.service.ActivityService#pageCount()
+	 */
+	@Override
+	public Page paging() {
+		Page page = new Page();
+		page.setIndex(1);
+		page.setSize(Integer.parseInt(ApplicationConfiguration.getProperty("page.size")));
+		page.setCount(activityDao.count() / page.getSize());
+		return null;
 	}
 
 	// /*

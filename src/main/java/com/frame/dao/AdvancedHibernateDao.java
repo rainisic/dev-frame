@@ -16,6 +16,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Projections;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
 /**
@@ -238,6 +239,19 @@ public abstract class AdvancedHibernateDao<T> {
 	public List<T> list(int firstResult, int maxResults) {
 		return hibernateTemplate.findByCriteria(
 				DetachedCriteria.forClass(clazz), firstResult, maxResults);
+	}
+
+	/**
+	 * Get the total row count.
+	 * 
+	 * @return total row count.
+	 */
+	public int count() {
+		return ((Long) hibernateTemplate
+				.findByCriteria(
+						DetachedCriteria.forClass(clazz).setProjection(
+								Projections.rowCount())).iterator().next())
+				.intValue();
 	}
 
 	/**
