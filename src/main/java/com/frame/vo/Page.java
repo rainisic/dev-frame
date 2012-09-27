@@ -35,6 +35,20 @@ public class Page {
 	}
 
 	/**
+	 * Calculate page by record count and page size.
+	 * 
+	 * @param recordCount
+	 *            record count.
+	 * @param size
+	 *            page size.
+	 */
+	public Page(int recordCount, int size) {
+		this.index = 0;
+		this.size = size;
+		this.count = (recordCount + (size - 1)) / size;
+	}
+
+	/**
 	 * Constructor with page count, page size and current page.
 	 * 
 	 * @param count
