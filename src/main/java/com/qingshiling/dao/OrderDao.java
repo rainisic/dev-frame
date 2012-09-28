@@ -17,11 +17,4 @@ import com.qingshiling.entity.Order;
  */
 @Repository
 public class OrderDao extends AdvancedHibernateDao<Order> {
-	
-	/* (non-Javadoc)
-	 * @see com.frame.dao.AdvancedHibernateDao#delete(java.lang.Object)
-	 */
-	@Override
-	public void delete(Order entity) {
-	}
 }

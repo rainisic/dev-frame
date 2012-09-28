@@ -18,8 +18,9 @@ import javax.persistence.Table;
 /**
  * 订票实体类
  * 
- * @author lge
- * 
+ * @author lge (Review and modified by rainisic in Sep 28 2012)
+ * @version 1.0.0
+ * @since 1.0.0
  */
 @Entity
 @Table(name = "ticket_order")
@@ -52,7 +53,11 @@ public class Order {
 	/** Order publish time. */
 	@Column(nullable = false)
 	private Date createTime;
-
+	
+	/** Ticket information. */
+	@Column(nullable = false)
+	private String ticketInfo;
+	
 	/**
 	 * @return the id
 	 */
@@ -158,6 +163,20 @@ public class Order {
 		this.createTime = createTime;
 	}
 
+	/**
+	 * @return the ticketInfo
+	 */
+	public String getTicketInfo() {
+		return ticketInfo;
+	}
+
+	/**
+	 * @param ticketInfo the ticketInfo to set
+	 */
+	public void setTicketInfo(String ticketInfo) {
+		this.ticketInfo = ticketInfo;
+	}
+	
 	// /**
 	// * id
 	// */

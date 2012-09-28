@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 
-html, body { margin: 0; padding: 0; font-size: 13px; font-family: "Microsoft Yahei", Sans-Serif; }
+html, body { margin: 0; padding: 0; font-size: 13px; font-family: "Microsoft Yahei", Sans, Sans-Serif; }
 body { background: url("../images/bg.jpg") repeat-x; }
 a { text-decoration: none; color: black; border: none; }
 ul, li { margin: 0px; padding: 0px; list-style: none; }
@@ -25,7 +25,7 @@ h1, h2, h3, h4, h5, h6 { font-family: "宋体", Serif; }
 .site-footer { text-align: center; padding: 10px; font-size: 12px; color: gray; }
 .site-footer a { color: gray; text-decoration: none; }
 
-.col-18 { display: inline-block; *display: inline; *zoom: 1; width: 17%; }
+.col-18 { display: inline-block; *display: inline; *zoom: 1; width: 18%; }
 .col-20 { display: inline-block; *display: inline; *zoom: 1; width: 20%; }
 .col-50 { display: inline-block; *display: inline; *zoom: 1; width: 50%; }
 .col-80 { display: inline-block; *display: inline; *zoom: 1; width: 80%; }
