@@ -45,7 +45,7 @@ public class Page {
 	public Page(int recordCount, int size) {
 		this.index = 0;
 		this.size = size;
-		this.count = (recordCount + (size - 1)) / size;
+		this.count = recordCount == 0 ? 1 : (recordCount + (size - 1)) / size;
 	}
 
 	/**
