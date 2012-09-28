@@ -17,7 +17,7 @@ import com.frame.status.service.StatusService;
 
 /**
  * Frame status check controller.<br>
- * You can visit <address>http://localhost:[port]/status/check-status</address>
+ * You can visit <address>http://localhost:[port]/status/check-status.html</address>
  * to check the framework status.
  * 
  * @author Rainisic
