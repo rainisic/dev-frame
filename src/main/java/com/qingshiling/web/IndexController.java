@@ -7,10 +7,17 @@
  */
 package com.qingshiling.web;
 
+import java.util.List;
+
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.qingshiling.entity.Activity;
+import com.qingshiling.service.ActivityService;
 
 /**
  * Index controller. Process index request.<br>
@@ -25,6 +32,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController {
 
+	/** Define activity business processor. */
+	@Resource
+	private ActivityService activityServiceImpl;
+	
 	/**
 	 * Process index request.
 	 * 
@@ -33,6 +44,12 @@ public class IndexController {
 	 */
 	@RequestMapping("index")
 	public String index(Model model) {
+		
+		// Load activities.
+		List<Activity> activities = activityServiceImpl.list(activityServiceImpl.paging(1));
+		
+		// Put values to request.
+		model.addAttribute("activities", activities);
 		model.addAttribute("pageTitle", "首页");
 		return "site.index.index";
 	}

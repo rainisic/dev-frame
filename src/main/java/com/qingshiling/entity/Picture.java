@@ -8,9 +8,11 @@
 package com.qingshiling.entity;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  * Picture entity class. Store the picture information. The real image is stored
@@ -20,6 +22,7 @@ import javax.persistence.JoinColumn;
  * @version 1.0.0
  * @since 1.0.0
  */
+@Entity
 public class Picture {
 
 	/** Identifier. */
@@ -41,6 +44,7 @@ public class Picture {
 
 	/** In which album. */
 	@JoinColumn
+	@ManyToOne
 	private Album album;
 
 	/**

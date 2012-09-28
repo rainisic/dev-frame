@@ -37,19 +37,16 @@
 	</aside>
 	<section class="topics">
 		<header><h1>最新活动</h1></header>
-		<ul>
-			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-18 right">2012-01-01 12:12:12</span></li>
-			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-18 right">2012-01-01 12:12:12</span></li>
-			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-18 right">2012-01-01 12:12:12</span></li>
-			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-18 right">2012-01-01 12:12:12</span></li>
-			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-18 right">2012-01-01 12:12:12</span></li>
-			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-18 right">2012-01-01 12:12:12</span></li>
-			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-18 right">2012-01-01 12:12:12</span></li>
-			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-18 right">2012-01-01 12:12:12</span></li>
-			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-18 right">2012-01-01 12:12:12</span></li>
-			<li><span class="col-80 left"><a href="#">这是一个新的活动内容</a></span><span class="col-18 right">2012-01-01 12:12:12</span></li>
-		</ul>
-		<footer>«&nbsp;<a href="#">查看全部活动</a>&nbsp;»</footer>
+			<#if activities?? && activities?size gt 0>
+				<ul>
+					<#list activities as activity>
+						<li><span class="col-80 left"><a href="/activity/display/${ activity.id }.html">${ activity.title }</a></span><span class="col-18 right">${ activity.publishTime?string("yyyy-MM-dd HH:mm:ss") }</span></li>
+					</#list>
+				</ul>
+				<footer>«&nbsp;<a href="/activity/page/1.html">查看全部活动</a>&nbsp;»</footer>
+			<#else>
+				<p class="no-content">尚无发布的主题</p>
+			</#if>
 	</section>
 </section>
 <script type="text/javascript" src="${ project.staticDomain! }/${ project.name! }/js/index.js"></script>

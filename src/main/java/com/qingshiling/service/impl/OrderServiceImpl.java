@@ -53,7 +53,7 @@ public class OrderServiceImpl implements OrderService {
 	 */
 	@Override
 	public boolean delete(int id) {
-
+		
 		// Get the order.
 		Order order = orderDao.get(id);
 

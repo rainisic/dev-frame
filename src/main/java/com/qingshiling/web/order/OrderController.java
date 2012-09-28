@@ -10,11 +10,13 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.qingshiling.entity.Order;
 import com.qingshiling.service.OrderService;
+import com.qingshiling.service.TicketService;
 
 /**
  * @author Rainisic
@@ -27,6 +29,10 @@ public class OrderController {
 	/** Define the order service instance. */
 	@Resource
 	private OrderService orderServiceImpl;
+	
+	/** Define the ticket service instance. */
+	@Resource
+	private TicketService ticketServiceImpl;
 
 	/**
 	 * Load ticket information and forward to order page.
@@ -34,7 +40,10 @@ public class OrderController {
 	 * @return
 	 */
 	@RequestMapping("create")
-	public String create() {
+	public String create(Model model) {
+		
+		// Load ticket types.
+		model.addAttribute("tickets", ticketServiceImpl.list());
 		return "site.order.create";
 	}
 
@@ -52,6 +61,8 @@ public class OrderController {
 				&& order.getContact().trim().length() > 0
 				&& order.getPhone() != null
 				&& order.getPhone().trim().length() > 0) {
+			
+			order.setTicketInfo("test");
 
 			// Save order.
 			orderServiceImpl.save(order);

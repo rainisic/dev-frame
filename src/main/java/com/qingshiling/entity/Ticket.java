@@ -8,24 +8,31 @@
 package com.qingshiling.entity;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
+ * Ticket entity class.
+ * 
  * @author rainisic
  * @version 1.0.0
  * @since 1.0.0
  */
+@Entity
 public class Ticket {
 
+	/** Identifier. */
 	@Id
 	@GeneratedValue
 	private int id;
 
+	/** Ticket type. */
 	@Column(nullable = false)
-	private String type;
+	private String name;
 
-	@Column
+	/** Price. */
+	@Column(nullable = false)
 	private int price;
 
 	/**
@@ -44,18 +51,18 @@ public class Ticket {
 	}
 
 	/**
-	 * @return the type
+	 * @return the name
 	 */
-	public String getType() {
-		return type;
+	public String getName() {
+		return name;
 	}
 
 	/**
-	 * @param type
-	 *            the type to set
+	 * @param name
+	 *            the name to set
 	 */
-	public void setType(String type) {
-		this.type = type;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	/**

@@ -6,6 +6,15 @@
 .content form label { display: inline-block; *display: inline; *zoom: 1; width: 80px; height: 25px; text-align: right; margin-right: 10px; }
 .content form input { width: 200px; padding: 5px; border: 1px silver solid; }
 .content form textarea { width: 500px; height: 200px; resize: none; border: 1px silver solid; }
-
 .content form input.go-button { text-align: center; width: 155px; height: 39px; background: url("/static/qingshiling/images/go-button.png") 0 -39px no-repeat; font-size: 15px; font-weight: bold; color: black; text-shadow: 2px 1px 3px darkgray; border: none; cursor: pointer; margin: 0 10px; }
 .content form input.go-button:hover {  background: url("/static/qingshiling/images/go-button.png") 0 0 no-repeat; }
+
+.content form #ticket-table { width: 100%; border: 1px silver solid; text-align: center; }
+.content form #ticket-table tr { height: 30px; line-height: 30px; }
+.content form #ticket-table tr th { }
+.content form #ticket-table tr td { border: 1px silver solid; }
+.content form #ticket-table tr td input { border: none; text-align: center; background-color: #EEFFEE; }
+.content form #ticket-table #totalPrice { padding: 0 5px; }
+
+.hint { display: none; background: url("/static/qingshiling/images/success.png") no-repeat 15px center; padding: 5px 15px 5px 78px; }
+.hint h1 { color: white; }

@@ -1,0 +1,1 @@
+insert into Ticket(`type`, `price`) values("test", 120);
