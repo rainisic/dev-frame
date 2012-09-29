@@ -46,6 +46,9 @@ public class ParameterLoadingInterceptor extends HandlerInterceptorAdapter {
 		request.setAttribute("seo", new SEO(getProperty("seo.keywords"),
 				getProperty("seo.description")));
 
+		// Set upload parameters.
+		request.setAttribute("uploadLocation", getProperty("upload.location"));
+
 		return true;
 	}
 }

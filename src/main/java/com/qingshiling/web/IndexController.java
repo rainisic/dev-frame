@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.qingshiling.constant.ActivityStatus;
 import com.qingshiling.entity.Activity;
 import com.qingshiling.service.ActivityService;
 
@@ -46,7 +47,8 @@ public class IndexController {
 	public String index(Model model) {
 		
 		// Load activities.
-		List<Activity> activities = activityServiceImpl.list(activityServiceImpl.paging(1));
+		List<Activity> activities = activityServiceImpl.list(
+				ActivityStatus.PUBLISHED, activityServiceImpl.paging(1));
 		
 		// Put values to request.
 		model.addAttribute("activities", activities);

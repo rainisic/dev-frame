@@ -27,9 +27,18 @@ import com.qingshiling.service.AlbumService;
 @Service
 public class AlbumServiceImpl implements AlbumService {
 
+	/** Album data access object. */
 	@Resource
 	private AlbumDao albumDao;
 
+	/* (non-Javadoc)
+	 * @see com.qingshiling.service.AlbumService#get(int)
+	 */
+	@Override
+	public Album get(int id) {
+		return albumDao.get(id);
+	}
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -65,7 +74,7 @@ public class AlbumServiceImpl implements AlbumService {
 
 		if (persistentAlbum != null) {
 
-			// Update
+			// Update the album.
 			persistentAlbum.setName(album.getName());
 			persistentAlbum.setDescription(album.getDescription());
 
@@ -87,10 +96,10 @@ public class AlbumServiceImpl implements AlbumService {
 
 		if (album != null) {
 
+			// Delete the album.
 			albumDao.delete(album);
 			return true;
 		}
 		return false;
 	}
-
 }

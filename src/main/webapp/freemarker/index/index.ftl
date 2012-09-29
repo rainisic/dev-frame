@@ -40,7 +40,7 @@
 			<#if activities?? && activities?size gt 0>
 				<ul>
 					<#list activities as activity>
-						<li><span class="col-80 left"><a href="/activity/display/${ activity.id }.html">${ activity.title }</a></span><span class="col-18 right">${ activity.publishTime?string("yyyy-MM-dd HH:mm:ss") }</span></li>
+						<li><span class="col-80 left"><a href="/activity/display/${ activity.id }.html">${ activity.title }</a></span><span class="col-18 right">${ activity.publishTime?string("yyyy-MM-dd") }</span></li>
 					</#list>
 				</ul>
 				<footer>«&nbsp;<a href="/activity/page/1.html">查看全部活动</a>&nbsp;»</footer>

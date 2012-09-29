@@ -54,6 +54,7 @@ table { border-collapse: collapse; }
 .red { color: red; }
 .gray { color: gray; }
 .black { color: black; }
+.white { color: white; }
 
 .indent { text-indent: 2em; }
 

@@ -7,9 +7,14 @@
  */
 package com.qingshiling.dao;
 
+import java.util.List;
+
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.frame.dao.AdvancedHibernateDao;
+import com.qingshiling.entity.Album;
 import com.qingshiling.entity.Picture;
 
 /**
@@ -22,4 +27,16 @@ import com.qingshiling.entity.Picture;
 @Repository
 public class PictureDao extends AdvancedHibernateDao<Picture> {
 
+	/**
+	 * List all pictures in given album.
+	 * 
+	 * @param album
+	 *            album to list.
+	 * @return expected picture list.
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Picture> list(Album album) {
+		return this.hibernateTemplate.findByCriteria(DetachedCriteria.forClass(
+				Picture.class).add(Restrictions.eq("album", album)));
+	}
 }

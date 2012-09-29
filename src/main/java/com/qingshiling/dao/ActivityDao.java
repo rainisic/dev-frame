@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Property;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
@@ -49,6 +50,9 @@ public class ActivityDao extends AdvancedHibernateDao<Activity> {
 		if (status != null) {
 			criteria.add(Restrictions.eq("status", status));
 		}
+
+		criteria.addOrder(Property.forName("priority").desc()).addOrder(
+				Property.forName("publishTime").desc());
 
 		// Paging.
 		if (page != null) {

@@ -2,14 +2,15 @@
 .content h1 { font-size: 28px; letter-spacing: 0.5em; text-align: center; }
 .content hr { width: 700px; }
 .content {  text-align: justify; *text-align: center; }
-.content .album { position: relative; display: inline-block; *display: inline; *zoom: 1; width: 200px; border: 1px silver solid; background-color: white; vertical-align: top; padding: 5px 8px 5px 5px; margin: 20px 0px; cursor: pointer; *margin: 0px 7px; }
-.content .album img { display: block; width: 100%; border: 1px silver solid; border-radius: 5px; }
+.content .album { position: relative; display: inline-block; width: 200px; border: 1px silver solid; background-color: white; vertical-align: top; padding: 5px 8px 5px 5px; margin: 20px 0px; cursor: pointer; }
+.content .album { *display: inline; *zoom: 1; *margin: 20px 7px; }
+.content .album img { display: block; width: 200px; height: 150px; border: 1px silver solid; border-radius: 5px; }
 .content .album figcaption { text-align: center; padding: 5px 0px; }
-.content .album div { display: none; position: absolute; background-color: white; left: -1px; width: 100%; border-left: 1px silver solid; border-right: 1px silver solid; border-bottom: 1px silver solid; z-index: 1; }
-.content .album:hover { *z-index: 1; }
-.content .album:hover div { display: block; }
+.content .album div { display: none; position: absolute; background-color: white; left: -1px; width: 100%; border-left: 1px silver solid; border-right: 1px silver solid; border-bottom: 1px silver solid; }
+.content .album div { *display: block; *position: static; *border: none; }
+.content .album:hover div { display: block; z-index: 1; }
 .content .album div em { display: block; margin: 5px; }
 .content .justify-fix { visibility: hidden; }
 
-.float { display: none; position: fixed; top: 0; right: 0; left: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.8); }
+.float { display: none; position: fixed; top: 0; right: 0; left: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.8); *background: url("/static/qingshiling/images/opacity-80.png") repeat; z-index: 99; }
 .float .close { position: absolute; display: block; right: 0; top: 0; color: white; padding: 10px; text-align: center; cursor: pointer; z-index: 99; }

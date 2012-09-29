@@ -21,6 +21,15 @@ import com.qingshiling.entity.Album;
 public interface AlbumService {
 
 	/**
+	 * Get the album by the given album id.
+	 * 
+	 * @param id
+	 *            album id.
+	 * @return album or null(if not exist).
+	 */
+	public Album get(int id);
+
+	/**
 	 * List all albums.
 	 * 
 	 * @return album list.
