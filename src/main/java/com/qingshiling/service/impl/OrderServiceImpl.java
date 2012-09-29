@@ -19,7 +19,7 @@ import com.qingshiling.entity.Order;
 import com.qingshiling.service.OrderService;
 
 /**
- * Process order ticket business service.
+ * Process business of order.
  * 
  * @author lge
  * @version 1.0.0

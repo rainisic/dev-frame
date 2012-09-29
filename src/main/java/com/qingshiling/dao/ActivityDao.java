@@ -20,7 +20,7 @@ import com.qingshiling.constant.ActivityStatus;
 import com.qingshiling.entity.Activity;
 
 /**
- * Activity data access object.
+ * Data access class for the table "Activity".
  * 
  * @author lge (Review and modified by rainisic in Sep 26 2012)
  * @version 1.0.0

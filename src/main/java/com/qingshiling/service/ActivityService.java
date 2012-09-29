@@ -14,7 +14,7 @@ import com.qingshiling.constant.ActivityStatus;
 import com.qingshiling.entity.Activity;
 
 /**
- * Activity service interface. Provide business processor for controller.
+ * Activity service interface. Define the business processor of activity.
  * 
  * @author lge (Review and modified by rainisic in Sep 26 2012)
  * @version 1.0.0

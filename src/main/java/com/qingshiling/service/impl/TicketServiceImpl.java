@@ -18,7 +18,7 @@ import com.qingshiling.entity.Ticket;
 import com.qingshiling.service.TicketService;
 
 /**
- * Ticket business interface implementation.
+ * Process business of ticket.
  * 
  * @author rainisic
  * @version 1.0.0

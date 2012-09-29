@@ -12,8 +12,11 @@ import java.util.List;
 import com.qingshiling.entity.Order;
 
 /**
- * @author lge
+ * Order service interface. Define the business processor of order.
  * 
+ * @author lge
+ * @version 1.0.0
+ * @since 1.0.0
  */
 public interface OrderService {
 

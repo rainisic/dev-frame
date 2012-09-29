@@ -12,8 +12,11 @@ import com.frame.dao.AdvancedHibernateDao;
 import com.qingshiling.entity.Order;
 
 /**
- * @author lge
+ * Data access class for the table "ticket_order".
  * 
+ * @author lge
+ * @version 1.0.0
+ * @since 1.0.0
  */
 @Repository
 public class OrderDao extends AdvancedHibernateDao<Order> {

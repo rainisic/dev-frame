@@ -12,7 +12,7 @@ import java.util.List;
 import com.qingshiling.entity.Ticket;
 
 /**
- * Ticket business interface.
+ * Ticket service interface. Define the business processor of ticket.
  * 
  * @author rainisic
  * @version 1.0.0
