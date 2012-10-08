@@ -8,6 +8,9 @@
 		<put-attribute name="footer" value="/freemarker/include/footer.ftl"/>
 		<put-attribute name="body" value="/freemarker/{1}/{2}.ftl"/>
 	</definition>
+	<definition name="admin.*.*" template="/freemarker/frame/admin.ftl">
+		<put-attribute name="body" value="/freemarker/{1}/{2}.ftl"/>
+	</definition>
 	<definition name="ajax.*.*" template="/freemarker/frame/ajax.ftl">
 		<put-attribute name="body" value="/freemarker/{1}/{2}.ftl"/>
 	</definition>

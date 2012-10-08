@@ -36,7 +36,7 @@ public class IndexController {
 	/** Define activity business processor. */
 	@Resource
 	private ActivityService activityServiceImpl;
-	
+
 	/**
 	 * Process index request.
 	 * 
@@ -45,15 +45,27 @@ public class IndexController {
 	 */
 	@RequestMapping("index")
 	public String index(Model model) {
-		
+
 		// Load activities.
 		List<Activity> activities = activityServiceImpl.list(
 				ActivityStatus.PUBLISHED, activityServiceImpl.paging(1));
-		
+
 		// Put values to request.
 		model.addAttribute("activities", activities);
 		model.addAttribute("pageTitle", "首页");
 		return "site.index.index";
+	}
+
+	/**
+	 * Go to the back-system.
+	 * 
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("admin/index")
+	public String admin(Model model) {
+		model.addAttribute("pageTitle", "内部系统首页");
+		return "admin.admin.index";
 	}
 
 	/**

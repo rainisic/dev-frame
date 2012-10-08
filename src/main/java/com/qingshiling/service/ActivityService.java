@@ -52,6 +52,15 @@ public interface ActivityService {
 	public List<Activity> list(ActivityStatus status, Page page);
 
 	/**
+	 * Get the activities in given status.
+	 * 
+	 * @param status
+	 *            activities status.
+	 * @return expected activity list.
+	 */
+	public List<Activity> list(ActivityStatus status);
+
+	/**
 	 * Save an activity.
 	 * 
 	 * @param activity
@@ -92,86 +101,13 @@ public interface ActivityService {
 	 * @return page.
 	 */
 	public Page paging(int index);
-	
+
 	/**
 	 * Load paging information of activities in given status.
+	 * 
 	 * @param status
 	 * @param index
 	 * @return
 	 */
 	public Page paging(ActivityStatus status, int index);
-
-	//
-	// /**
-	// * 根据id查询单个活动
-	// *
-	// * @param id
-	// * @author lge
-	// * @return Activity
-	// */
-	// public Activity getActivity(Integer id);
-	//
-	// /**
-	// * 得到优惠活动列表，通过分页
-	// *
-	// * @param page
-	// * @author lge
-	// * @return List<Activity>
-	// */
-	// public List<Activity> getActivityListToPage(Page page);
-	//
-	// /**
-	// * 得到发布的优惠活动列表
-	// *
-	// * @param page
-	// * @author lge
-	// * @return List<Activity>
-	// */
-	// public List<Activity> getPublishActivityList(Page page);
-	//
-	// /**
-	// * 得到删除的优惠活动列表
-	// *
-	// * @param page
-	// * @author lge
-	// * @return List<Activity>
-	// */
-	// public List<Activity> getDeletedActivityList(Page page);
-	//
-	// /**
-	// * 保存新活动
-	// *
-	// * @param activity
-	// * @author lge
-	// * @return true or false
-	// */
-	// public boolean saveNewActivity(Activity activity);
-	//
-	// /**
-	// * 修改活动
-	// *
-	// * @param activity
-	// * @author lge
-	// * @return Activity
-	// */
-	// public Activity updateActivity(Activity activity);
-	//
-	// /**
-	// * 删除活动（假删）
-	// *
-	// * @param id
-	// * @author lge
-	// * @return true or false
-	// */
-	// public boolean deleteActivity(Integer id);
-	//
-	// /**
-	// * 删除垃圾站里的活动（真删）
-	// *
-	// * @param id
-	// * @author lge
-	// * @return true or false
-	// */
-	// public boolean removeActivity(int id);
-
 }

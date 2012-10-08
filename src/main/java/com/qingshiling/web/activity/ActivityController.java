@@ -60,6 +60,26 @@ public class ActivityController {
 		return "site.activity.list";
 	}
 
+	@RequestMapping("admin/list")
+	public String list(Model model, Integer status) {
+		
+		// Check query status.
+		if (status == null) {
+		} else if (status == 0) {
+			model.addAttribute("activities",
+					activityServiceImpl.list(ActivityStatus.UNPUBLISHED));
+		} else if (status == 1) {
+			model.addAttribute("activities",
+					activityServiceImpl.list(ActivityStatus.PUBLISHED));
+		} else if (status == 2) {
+			model.addAttribute("activities",
+					activityServiceImpl.list(ActivityStatus.DELETED));
+		}
+		model.addAttribute("status", status);
+		model.addAttribute("pageTitle", "活动列表");
+		return "admin.admin.activity";
+	}
+	
 	/**
 	 * Display an activity.
 	 * 
@@ -77,19 +97,4 @@ public class ActivityController {
 		model.addAttribute("activity", activity);
 		return "site.activity.display";
 	}
-
-	// @RequestMapping
-	// public String getPablishActivityList(Model model, Page page) {
-	// if (page == null) {
-	// throw new RuntimeException("无效参数");
-	// }
-	// if (page.getIndex() < 1 || page.getIndex() > 5000) {
-	// throw new RuntimeException("无效参数");
-	// }
-	// if (page.getSize() < 1 || page.getSize() > 500) {
-	// throw new RuntimeException("无效参数");
-	// }
-	// return null;
-	// }
-
 }
