@@ -15,9 +15,9 @@
 			</tr>
 			<#list tickets as ticket>
 				<tr>
-					<td>${ ticket.name }</td>
+					<td class="ticket-name">${ ticket.name }</td>
 					<td>${ ticket.price }</td>
-					<td style="background-color: #EEFFEE;"><input class="ticket-count" name="count" type="number" min="0" value="0"></td>
+					<td style="background-color: #EEFFEE;"><input class="ticket-count" type="number" min="0" value="0"></td>
 				</tr>
 			</#list>
 			<tr class="fw-bold">
@@ -47,7 +47,7 @@
 			<textarea id="remark" name="remark"></textarea>
 		</p>
 		<p style="text-align: center;">
-			<input class="go-button" type="submit" value="提交订单">
+			<input id="submit" class="go-button" type="button" value="提交订单">
 			<input class="go-button" type="reset" value="重新填写">
 		</p>
 	</form>

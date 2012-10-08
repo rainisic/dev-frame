@@ -17,13 +17,18 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
  */
 public class RequestAnalyzerInterceptor extends HandlerInterceptorAdapter {
 
-	/* (non-Javadoc)
-	 * @see org.springframework.web.servlet.handler.HandlerInterceptorAdapter#preHandle(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, java.lang.Object)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.springframework.web.servlet.handler.HandlerInterceptorAdapter#preHandle
+	 * (javax.servlet.http.HttpServletRequest,
+	 * javax.servlet.http.HttpServletResponse, java.lang.Object)
 	 */
 	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
-		
+
 		// Set the page forum according the request URI.
 		request.setAttribute("forum", request.getRequestURI().split("/")[1]);
 		return true;

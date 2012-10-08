@@ -19,8 +19,11 @@ import com.qingshiling.service.OrderService;
 import com.qingshiling.service.TicketService;
 
 /**
- * @author Rainisic
+ * Ticket order controller.
  * 
+ * @author Rainisic
+ * @version 1.0.0
+ * @since 1.0.0
  */
 @Controller
 @RequestMapping("order")
@@ -29,7 +32,7 @@ public class OrderController {
 	/** Define the order service instance. */
 	@Resource
 	private OrderService orderServiceImpl;
-	
+
 	/** Define the ticket service instance. */
 	@Resource
 	private TicketService ticketServiceImpl;
@@ -41,7 +44,7 @@ public class OrderController {
 	 */
 	@RequestMapping("create")
 	public String create(Model model) {
-		
+
 		// Load ticket types.
 		model.addAttribute("tickets", ticketServiceImpl.list());
 		return "site.order.create";
@@ -62,13 +65,11 @@ public class OrderController {
 				&& order.getPhone() != null
 				&& order.getPhone().trim().length() > 0) {
 			
-			order.setTicketInfo("test");
-
 			// Save order.
 			orderServiceImpl.save(order);
 			return "success";
 		}
-		
+
 		return "failure";
 	}
 }
