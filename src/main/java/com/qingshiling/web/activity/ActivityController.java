@@ -97,4 +97,73 @@ public class ActivityController {
 		model.addAttribute("activity", activity);
 		return "site.activity.display";
 	}
+
+	/**
+	 * 新增活动
+	 * 
+	 * @param model
+	 * @param activity
+	 * @return
+	 */
+	@RequestMapping("admin/create")
+	public String create(Model model, Activity activity) {
+		activityServiceImpl.save(activity);
+		return "site.activity.list";
+	}
+
+	/**
+	 * 更新活动
+	 * 
+	 * @param model
+	 * @param activity
+	 * @return
+	 */
+	@RequestMapping("admin/update")
+	public String update(Model model, Activity activity) {
+		Activity result = activityServiceImpl.update(activity);
+		model.addAttribute("activity", result);
+		return "site.activity.list";
+	}
+
+	/**
+	 * 删除活动
+	 * 
+	 * @param model
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping("admin/delete")
+	public String delete(Model model, Integer id) {
+		activityServiceImpl.delete(id);
+		return "site.activity.list";
+	}
+
+	/**
+	 * Get ActivityList by ActivityStatus;
+	 * 
+	 * @param model
+	 * @param status
+	 * @return
+	 */
+	@RequestMapping("admin/list")
+	public String list(Model model, ActivityStatus status) {
+		// get unpublished activityList
+		if (status == ActivityStatus.UNPUBLISHED) {
+			List<Activity> result = activityServiceImpl.list(status, null);
+			model.addAttribute("unpublished", result);
+			return "site.activity.list";
+
+			// get publish activityList
+		} else if (status == ActivityStatus.PUBLISHED) {
+			List<Activity> result = activityServiceImpl.list(status, null);
+			model.addAttribute("published", result);
+			return "site.activity.list";
+
+			// get deleted activityList
+		} else {
+			List<Activity> result = activityServiceImpl.list(status, null);
+			model.addAttribute("deleted", result);
+			return "site.activity.list";
+		}
+	}
 }
