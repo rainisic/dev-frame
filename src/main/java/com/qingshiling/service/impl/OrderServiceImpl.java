@@ -40,8 +40,8 @@ public class OrderServiceImpl implements OrderService {
 	 */
 	@Override
 	public void save(Order order) {
-		
-		// Get current date and time. 
+
+		// Get current date and time.
 		order.setCreateTime(Calendar.getInstance().getTime());
 		orderDao.save(order);
 	}
@@ -53,7 +53,7 @@ public class OrderServiceImpl implements OrderService {
 	 */
 	@Override
 	public boolean delete(int id) {
-		
+
 		// Get the order.
 		Order order = orderDao.get(id);
 

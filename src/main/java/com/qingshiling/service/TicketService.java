@@ -43,4 +43,13 @@ public interface TicketService {
 	 * @return ticket type.
 	 */
 	public List<Ticket> list();
+
+	/**
+	 * Update a ticket message.
+	 * 
+	 * @param ticket
+	 * 
+	 * @return ticket or null.
+	 */
+	public Ticket update(Ticket ticket);
 }
