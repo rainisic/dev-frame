@@ -49,7 +49,7 @@ public class TicketServiceImpl implements TicketService {
 	 */
 	@Override
 	public boolean delete(int id) {
-		
+
 		// Get the ticket.
 		Ticket ticket = ticketDao.get(id);
 
@@ -68,6 +68,25 @@ public class TicketServiceImpl implements TicketService {
 	@Override
 	public List<Ticket> list() {
 		return ticketDao.list();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.qingshiling.service.TicketService#update(com.qingshiling.entity.Ticket
+	 * )
+	 */
+	@Override
+	public Ticket update(Ticket ticket) {
+		Ticket persistentTicket = ticketDao.get(ticket.getId());
+		if (persistentTicket != null) {
+			persistentTicket.setName(ticket.getName());
+			persistentTicket.setPrice(ticket.getPrice());
+			ticketDao.update(persistentTicket);
+			return persistentTicket;
+		}
+		return null;
 	}
 
 }

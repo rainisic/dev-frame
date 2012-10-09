@@ -72,4 +72,30 @@ public class OrderController {
 
 		return "failure";
 	}
+	
+	/**
+	 * Get orderList ;
+	 * 
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("list")
+	public String list(Model model){
+		model.addAttribute("orderList", orderServiceImpl.list());
+		return "site.order.list";
+	}
+	
+	/**
+	 * delete order by id
+	 * 
+	 * @param model
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping("detele")
+	public String detele(Model model,Integer id){
+		orderServiceImpl.delete(id);
+		return "redirect:/order/list";
+	}
+		
 }
