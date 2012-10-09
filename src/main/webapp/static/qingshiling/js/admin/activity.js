@@ -66,6 +66,9 @@ function actionListener() {
 	// Delete target activity.
 	$(".delete").click( deleteButtonClickActionPerformed );
 	
+	// Modify activity.
+	$(".modify").click( modifyButtonClickActionPerformed );
+	
 	// Show editor dialog.
 	$("#create-activity").click( createButtonClickActionPerformed );
 	
@@ -100,17 +103,48 @@ function deleteButtonClickActionPerformed() {
 }
 
 /**
+ * Perform the modify button click action.
+ * Load activity by ajax and displaied in the editor dialog.
+ * Change the form action to "modify URL".
+ */
+function modifyButtonClickActionPerformed() {
+	
+	$.ajax({
+		url:		"/activity/admin/load.html",
+		data:		"id=" + $(this).parents("tr").attr("id"),
+		type:		"get",
+		cache:		false,
+		dataType:	"json",
+		success:	function(activity) {
+			
+			// Put data.
+			$("#id").val(activity.id);
+			$("#title").val(activity.title);
+			$("#content").val(activity.content);
+			$("#priority").val(activity.priority);
+			$("#status").val(activity.status);
+			var date = new Date(activity.publishTime);
+			$("#publishTime").val(date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate());
+			
+			// Show dialog.
+			toggleDialog("show");
+		}
+	});
+	
+	// Change action url.
+	$("#edit-activity-form").attr("action", "/activity/admin/update.html");
+}
+
+/**
  * Perform the create activity button action.
  */
 function createButtonClickActionPerformed() {
 	
 	// Change action url and show the editor dialog.
 	$("#edit-activity-form").attr("action", "/activity/admin/publish.html");
-	if ($("#edit-activity").is(":visible")) {
-		$("#edit-activity").hide().css("left", ($(window).width() - 1000) / 2).css("top", ($(window).height() - 600) / 2);
-	}
-	$("#cover").fadeIn();
-	$("#edit-activity").fadeIn();
+
+	// Show dialog.
+	toggleDialog("show");
 }
 
 /**
@@ -119,6 +153,23 @@ function createButtonClickActionPerformed() {
 function dialogCancelButtonClickActionPerformed() {
 	
 	// Hide the dialog.
-	$("#cover").fadeOut();
-	$("#edit-activity").fadeOut();
+	toggleDialog("hide");
+}
+
+/**
+ * Show or hide the editor dialog.
+ * @param operate "show" or "hide"
+ */
+function toggleDialog(operate) {
+	
+	if (operate == "show") {
+		if ($("#edit-activity").is(":visible")) {
+			$("#edit-activity").hide().css("left", ($(window).width() - 1000) / 2).css("top", ($(window).height() - 600) / 2);
+		}
+		$("#cover").fadeIn();
+		$("#edit-activity").fadeIn();
+	} else if (operate == "hide") {
+		$("#cover").fadeOut();
+		$("#edit-activity").fadeOut();
+	}
 }

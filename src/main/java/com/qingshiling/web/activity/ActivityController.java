@@ -14,6 +14,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.frame.vo.Page;
 import com.qingshiling.constant.ActivityStatus;
@@ -57,7 +58,7 @@ public class ActivityController {
 		model.addAttribute("activities", activities);
 		model.addAttribute("page", page);
 		model.addAttribute("pageTitle", "活动列表");
-		
+
 		return "site.activity.list";
 	}
 
@@ -76,12 +77,13 @@ public class ActivityController {
 
 		// Put values to request.
 		model.addAttribute("activity", activity);
-		
+
 		return "site.activity.display";
 	}
 
 	/**
 	 * List activities for administrator.
+	 * 
 	 * @param model
 	 * @param status
 	 * @return
@@ -91,20 +93,32 @@ public class ActivityController {
 
 		// Define activities list.
 		List<Activity> activities;
-		
+
 		// Check query status and query activities.
 		if (status == null) {
 			activities = activityServiceImpl.list();
 		} else {
-			activities = activityServiceImpl.list(ActivityStatus.values()[status]);
+			activities = activityServiceImpl
+					.list(ActivityStatus.values()[status]);
 		}
-		
+
 		// Put values to request.
 		model.addAttribute("activities", activities);
 		model.addAttribute("status", status);
 		model.addAttribute("pageTitle", "活动列表");
-		
+
 		return "admin.admin.activity";
+	}
+
+	/**
+	 * Load activity.
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping("admin/load")
+	@ResponseBody
+	public Object load(Integer id) {
+		return activityServiceImpl.display(id);
 	}
 
 	/**
