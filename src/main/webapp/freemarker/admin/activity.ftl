@@ -44,7 +44,7 @@
 <div id="cover"></div>
 <div id="edit-activity">
 	<form id="edit-activity-form" method="post">
-		<input id="id" name="id" type="hidden">
+		<input id="id" name="id" type="hidden" value="0">
 		<p>
 			<label for="title">文章标题：</label>
 			<input id="title" name="title" type="text" placeholder="请输入活动标题" maxLength="128" autofocus required>
