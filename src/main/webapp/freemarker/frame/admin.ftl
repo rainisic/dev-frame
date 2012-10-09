@@ -21,6 +21,7 @@ body > footer { position: fixed; right: 5px; bottom: 0px; left: 5px; height: 25p
 <link rel="stylesheet" type="text/css" href="${ project.staticDomain! }/common/js/jquery/jquery-ui.css">
 <script type="text/javascript" src="${ project.staticDomain! }/common/js/jquery/jquery.js"></script>
 <script type="text/javascript" src="${ project.staticDomain! }/common/js/jquery/jquery-ui.js"></script>
+<script type="text/javascript" src="${ project.staticDomain! }/common/js/tiny_mce/jquery.tinymce.js"></script>
 </head>
 <body>
 	<header>

@@ -41,6 +41,13 @@ public interface ActivityService {
 	public List<Activity> list(Page page);
 
 	/**
+	 * List all activities.
+	 * 
+	 * @return all activities.
+	 */
+	public List<Activity> list();
+
+	/**
 	 * Get the activities in the given status and paging by the page.
 	 * 
 	 * @param status

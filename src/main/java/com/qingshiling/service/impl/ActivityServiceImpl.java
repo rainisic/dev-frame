@@ -45,6 +45,14 @@ public class ActivityServiceImpl implements ActivityService {
 	public Activity display(int id) {
 		return activityDao.get(id);
 	}
+	
+	/* (non-Javadoc)
+	 * @see com.qingshiling.service.ActivityService#list()
+	 */
+	@Override
+	public List<Activity> list() {
+		return activityDao.list();
+	}
 
 	/*
 	 * (non-Javadoc)

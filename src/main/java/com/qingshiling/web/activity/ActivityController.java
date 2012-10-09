@@ -57,29 +57,10 @@ public class ActivityController {
 		model.addAttribute("activities", activities);
 		model.addAttribute("page", page);
 		model.addAttribute("pageTitle", "活动列表");
+		
 		return "site.activity.list";
 	}
 
-	@RequestMapping("admin/list")
-	public String list(Model model, Integer status) {
-		
-		// Check query status.
-		if (status == null) {
-		} else if (status == 0) {
-			model.addAttribute("activities",
-					activityServiceImpl.list(ActivityStatus.UNPUBLISHED));
-		} else if (status == 1) {
-			model.addAttribute("activities",
-					activityServiceImpl.list(ActivityStatus.PUBLISHED));
-		} else if (status == 2) {
-			model.addAttribute("activities",
-					activityServiceImpl.list(ActivityStatus.DELETED));
-		}
-		model.addAttribute("status", status);
-		model.addAttribute("pageTitle", "活动列表");
-		return "admin.admin.activity";
-	}
-	
 	/**
 	 * Display an activity.
 	 * 
@@ -95,7 +76,35 @@ public class ActivityController {
 
 		// Put values to request.
 		model.addAttribute("activity", activity);
+		
 		return "site.activity.display";
+	}
+
+	/**
+	 * List activities for administrator.
+	 * @param model
+	 * @param status
+	 * @return
+	 */
+	@RequestMapping("admin/list")
+	public String list(Model model, Integer status) {
+
+		// Define activities list.
+		List<Activity> activities;
+		
+		// Check query status and query activities.
+		if (status == null) {
+			activities = activityServiceImpl.list();
+		} else {
+			activities = activityServiceImpl.list(ActivityStatus.values()[status]);
+		}
+		
+		// Put values to request.
+		model.addAttribute("activities", activities);
+		model.addAttribute("status", status);
+		model.addAttribute("pageTitle", "活动列表");
+		
+		return "admin.admin.activity";
 	}
 
 	/**
@@ -105,10 +114,10 @@ public class ActivityController {
 	 * @param activity
 	 * @return
 	 */
-	@RequestMapping("admin/create")
-	public String create(Model model, Activity activity) {
+	@RequestMapping("admin/publish")
+	public String publish(Model model, Activity activity) {
 		activityServiceImpl.save(activity);
-		return "site.activity.list";
+		return "redirect:/activity/admin/list.html";
 	}
 
 	/**
@@ -122,7 +131,7 @@ public class ActivityController {
 	public String update(Model model, Activity activity) {
 		Activity result = activityServiceImpl.update(activity);
 		model.addAttribute("activity", result);
-		return "site.activity.list";
+		return "redirect:/activity/admin/list.html";
 	}
 
 	/**
@@ -135,35 +144,6 @@ public class ActivityController {
 	@RequestMapping("admin/delete")
 	public String delete(Model model, Integer id) {
 		activityServiceImpl.delete(id);
-		return "site.activity.list";
-	}
-
-	/**
-	 * Get ActivityList by ActivityStatus;
-	 * 
-	 * @param model
-	 * @param status
-	 * @return
-	 */
-	@RequestMapping("admin/list")
-	public String list(Model model, ActivityStatus status) {
-		// get unpublished activityList
-		if (status == ActivityStatus.UNPUBLISHED) {
-			List<Activity> result = activityServiceImpl.list(status, null);
-			model.addAttribute("unpublished", result);
-			return "site.activity.list";
-
-			// get publish activityList
-		} else if (status == ActivityStatus.PUBLISHED) {
-			List<Activity> result = activityServiceImpl.list(status, null);
-			model.addAttribute("published", result);
-			return "site.activity.list";
-
-			// get deleted activityList
-		} else {
-			List<Activity> result = activityServiceImpl.list(status, null);
-			model.addAttribute("deleted", result);
-			return "site.activity.list";
-		}
+		return "redirect:/activity/admin/list.html";
 	}
 }
