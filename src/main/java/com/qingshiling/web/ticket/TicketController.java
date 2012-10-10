@@ -25,7 +25,7 @@ import com.qingshiling.service.TicketService;
 public class TicketController {
 	/** Define the ticket service instance. */
 	@Resource
-	TicketService ticketService;
+	TicketService ticketServiceImpl;
 
 	/**
 	 * Add ticket kinds.
@@ -36,7 +36,7 @@ public class TicketController {
 	 */
 	@RequestMapping("admin/publish")
 	public String publish(Model model, Ticket ticket){
-		ticketService.save(ticket);
+		ticketServiceImpl.save(ticket);
 		return "redirect:/ticket/admin/list.html";
 	}
 	
@@ -49,7 +49,7 @@ public class TicketController {
 	 */
 	@RequestMapping("admin/update")
 	public String update(Model model, Ticket ticket){
-		ticketService.update(ticket);
+		ticketServiceImpl.update(ticket);
 		return "redirect:/ticket/admin/list.html";
 	}
 	
@@ -61,7 +61,7 @@ public class TicketController {
 	 */
 	@RequestMapping("admin/list")
 	public String list(Model model){
-		ticketService.list();
+		model.addAttribute("tickets", ticketServiceImpl.list());
 		return "admin.admin.ticket";
 	}
 	
@@ -74,7 +74,7 @@ public class TicketController {
 	 */
 	@RequestMapping("admin/delete")
 	public String delete(Model model, Integer id){
-		ticketService.delete(id);
+		ticketServiceImpl.delete(id);
 		return "redirect:/ticket/admin/list.html";
 	}
 }

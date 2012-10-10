@@ -13,11 +13,11 @@ $(document).ready(function() {
 			height: 160,
 			modal: true,
 			buttons: {
-				"取消": function() {
-					$( this ).dialog( "close" );
-				},
 				"删除": function() {
 					window.location.href = "/order/admin/delete.html?id=" + delete_id;
+					$( this ).dialog( "close" );
+				},
+				"取消": function() {
 					$( this ).dialog( "close" );
 				}
 			}

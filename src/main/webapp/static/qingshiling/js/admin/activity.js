@@ -45,7 +45,7 @@ function initialize() {
 	});
 	
 	// Set button UI.
-	$("#create-activity").button({
+	$("#create").button({
 		icons: {
             primary: "ui-icon-plus"
         }
@@ -70,7 +70,7 @@ function actionListener() {
 	$(".modify").click( modifyButtonClickActionPerformed );
 	
 	// Show editor dialog.
-	$("#create-activity").click( createButtonClickActionPerformed );
+	$("#create").click( createButtonClickActionPerformed );
 	
 	// Cancel button action.
 	$("#cancel").click( dialogCancelButtonClickActionPerformed );
@@ -91,11 +91,11 @@ function deleteButtonClickActionPerformed() {
 		height: 160,
 		modal: true,
 		buttons: {
-			"取消": function() {
-				$( this ).dialog( "close" );
-			},
 			"删除": function() {
 				window.location.href = "/activity/admin/delete.html?id=" + delete_id;
+				$( this ).dialog( "close" );
+			},
+			"取消": function() {
 				$( this ).dialog( "close" );
 			}
 		}
@@ -132,7 +132,7 @@ function modifyButtonClickActionPerformed() {
 	});
 	
 	// Change action url.
-	$("#edit-activity-form").attr("action", "/activity/admin/update.html");
+	$("#edit-form").attr("action", "/activity/admin/update.html");
 }
 
 /**
@@ -141,7 +141,7 @@ function modifyButtonClickActionPerformed() {
 function createButtonClickActionPerformed() {
 	
 	// Change action url and show the editor dialog.
-	$("#edit-activity-form").attr("action", "/activity/admin/publish.html");
+	$("#edit-form").attr("action", "/activity/admin/publish.html");
 
 	// Show dialog.
 	toggleDialog("show");
@@ -154,6 +154,9 @@ function dialogCancelButtonClickActionPerformed() {
 	
 	// Hide the dialog.
 	toggleDialog("hide");
+	
+	// Clear form.
+	$("#edit-form")[0].reset();
 }
 
 /**
@@ -163,13 +166,13 @@ function dialogCancelButtonClickActionPerformed() {
 function toggleDialog(operate) {
 	
 	if (operate == "show") {
-		if ($("#edit-activity").is(":visible")) {
-			$("#edit-activity").hide().css("left", ($(window).width() - 1000) / 2).css("top", ($(window).height() - 600) / 2);
+		if ($("#edit-dialog").is(":visible")) {
+			$("#edit-dialog").hide().css("left", ($(window).width() - 1000) / 2).css("top", ($(window).height() - 600) / 2);
 		}
 		$("#cover").fadeIn();
-		$("#edit-activity").fadeIn();
+		$("#edit-dialog").fadeIn();
 	} else if (operate == "hide") {
 		$("#cover").fadeOut();
-		$("#edit-activity").fadeOut();
+		$("#edit-dialog").fadeOut();
 	}
 }
