@@ -5,7 +5,7 @@
 		<option value="/activity/admin/list.html?status=0" <#if status?? && status == 0>selected="selected"</#if>>未发布</option>
 		<option value="/activity/admin/list.html?status=1" <#if status?? && status == 1>selected="selected"</#if>>已发布</option>
 	</select>
-	<button id="create-activity">新建活动</button>
+	<button id="create">新建活动</button>
 </div>
 <#if activities?? && activities?size gt 0>
 	<table class="content-list">
@@ -42,8 +42,8 @@
 </#if>
 
 <div id="cover"></div>
-<div id="edit-activity">
-	<form id="edit-activity-form" method="post">
+<div id="edit-dialog">
+	<form id="edit-form" method="post">
 		<input id="id" name="id" type="hidden" value="0">
 		<p>
 			<label for="title">文章标题：</label>
