@@ -62,6 +62,7 @@ public class TicketController {
 	@RequestMapping("admin/list")
 	public String list(Model model){
 		model.addAttribute("tickets", ticketServiceImpl.list());
+		model.addAttribute("pageTitle", "门票管理");
 		return "admin.admin.ticket";
 	}
 	

@@ -65,6 +65,9 @@
 			<mvc:mapping path="/**/*.html" />
 			<bean class="com.qingshiling.interceptor.RequestAnalyzerInterceptor" />
 		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/**/*.html" />
+			<bean class="com.qingshiling.interceptor.PermissionCheckInterceptor" />
+		</mvc:interceptor>
 	</mvc:interceptors>
-
 </beans>
