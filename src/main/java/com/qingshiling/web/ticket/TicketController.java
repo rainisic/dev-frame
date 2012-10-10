@@ -61,7 +61,7 @@ public class TicketController {
 	 */
 	@RequestMapping("admin/list")
 	public String list(Model model){
-		ticketService.list();
+		model.addAttribute("tickets", ticketService.list());
 		return "admin.admin.ticket";
 	}
 	
