@@ -77,6 +77,7 @@ public class ActivityController {
 
 		// Put values to request.
 		model.addAttribute("activity", activity);
+		model.addAttribute("pageTitle", activity.getTitle());
 
 		return "site.activity.display";
 	}

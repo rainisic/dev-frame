@@ -46,6 +46,7 @@ public class AlbumController {
 
 		// Add album list to request.
 		model.addAttribute("albums", albumServiceImpl.list());
+		model.addAttribute("pageTitle", "漂流风采");
 		return "site.album.list";
 	}
 

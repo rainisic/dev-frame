@@ -10,12 +10,14 @@ package com.qingshiling.web;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.frame.util.ApplicationConfiguration;
 import com.qingshiling.constant.ActivityStatus;
 import com.qingshiling.entity.Activity;
 import com.qingshiling.service.ActivityService;
@@ -69,6 +71,45 @@ public class IndexController {
 	}
 
 	/**
+	 * Go to the login page.
+	 * 
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("login")
+	public String login(Model model) {
+		model.addAttribute("pageTitle", "管理员登录");
+		return "ajax.html.login";
+	}
+
+	/**
+	 * Validate user information.
+	 * 
+	 * @param model
+	 * @param username
+	 * @param password
+	 * @return
+	 */
+	@RequestMapping("validate")
+	public String validate(Model model, String username, String password,
+			HttpSession session) {
+		if (username != null
+				&& password != null
+				&& username.equals(ApplicationConfiguration
+						.getProperty("admin.username"))
+				&& password.equals(ApplicationConfiguration
+						.getProperty("admin.password"))) {
+
+			// Add session.
+			session.setAttribute("system_admin", true);
+			return "redirect:/admin/index.html";
+		} else {
+			model.addAttribute("result", "failure");
+			return "forward:/login.html";
+		}
+	}
+
+	/**
 	 * Process static html request.
 	 * 
 	 * @param model
@@ -78,7 +119,7 @@ public class IndexController {
 	@RequestMapping("{html}")
 	public String html(Model model, @PathVariable String html) {
 		if (html.equals("introduction")) {
-			model.addAttribute("pageTitle", "漂流简介");
+			model.addAttribute("pageTitle", "白河漂流");
 		} else if (html.equals("direction")) {
 			model.addAttribute("pageTitle", "如何前往");
 		} else if (html.equals("about")) {

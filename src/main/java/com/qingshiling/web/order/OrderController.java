@@ -47,6 +47,7 @@ public class OrderController {
 
 		// Load ticket types.
 		model.addAttribute("tickets", ticketServiceImpl.list());
+		model.addAttribute("pageTitle", "预约订票");
 		return "site.order.create";
 	}
 
@@ -82,6 +83,7 @@ public class OrderController {
 	@RequestMapping("admin/list")
 	public String list(Model model){
 		model.addAttribute("orders", orderServiceImpl.list());
+		model.addAttribute("pageTitle", "订单管理");
 		return "admin.admin.order";
 	}
 	
