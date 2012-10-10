@@ -31,20 +31,13 @@ public class PermissionCheckInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
 
-		String[] uri = request.getRequestURI().split("/");
+		// Check session info.
+		HttpSession session = request.getSession();
 
-		if (uri != null
-				&& ((uri.length > 1 && uri[1].equals("admin")) || uri.length > 2
-						&& uri[2].equals("admin"))) {
-
-			// Check session info.
-			HttpSession session = request.getSession();
-
-			if (session.getAttribute("system_admin") == null) {
-				response.sendRedirect("/login.html");
-			}
+		if (session.getAttribute("system_admin") == null) {
+			response.sendRedirect("/login.html");
+			return false;
 		}
-
 		return true;
 	}
 }

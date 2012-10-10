@@ -1,0 +1,17 @@
+@CHARSET "UTF-8";
+section.main .operation { margin-bottom: 10px; }
+section.main .operation button { font-size: 13px; }
+
+section.main ul { width: 100%; border: 1px gray solid; list-style: none; margin: 0; padding: 0; }
+section.main ul li { height: 200px; list-style: none; margin: 0; padding: 0; }
+section.main ul li:not(:first-child) { border-top: 1px silver dashed; }
+section.main ul li:nth-child(odd) { background-color: #FFFFEE; }
+section.main ul li:nth-child(even) { background-color: #EEEEFF; }
+section.main ul li figure { float: left; margin: 0; text-align: center; padding: 10px 10px 10px 10px; border-right: 1px silver dotted; }
+section.main ul li figure img { display: block; border: 1px silver solid; width: 200px; height: 150px; }
+section.main ul li figure figurecaption { display: block; margin-top: 10px; }
+section.main ul li article { padding: 20px; float: left; margin-left: 20px; }
+section.main ul li div { width: 180px; height: 180px; float: right; padding: 10px; text-align: center; border-left: 1px silver dotted; }
+section.main ul li div button.modify, section.main ul li div button.delete { width: 100px; margin-top: 40px; }
+#delete-confirm { display: none; text-align: center; }
+#edit-form input { border: 1px silver solid; padding: 5px; width: 150px; }

@@ -30,7 +30,7 @@ public class AlbumController {
 	/** Define album service. */
 	@Resource
 	private AlbumService albumServiceImpl;
-	
+
 	/** Define picture service. */
 	@Resource
 	private PictureService pictureServiceImpl;
@@ -62,5 +62,14 @@ public class AlbumController {
 		// Add pictures.
 		model.addAttribute("pictures", pictureServiceImpl.list(id));
 		return "ajax.album.display";
+	}
+
+	@RequestMapping("admin/list")
+	public String manage(Model model) {
+
+		// Add album list to request.
+		model.addAttribute("albums", albumServiceImpl.list());
+		model.addAttribute("pageTitle", "漂流风采");
+		return "admin.admin.album";
 	}
 }

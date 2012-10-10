@@ -7,7 +7,7 @@
 			<img src="${ uploadLocation! }/${ (album.cover.path)!"default-cover.jpg" }">
 			<figcaption>${ album.name! }</figcaption>
 			<div>
-				<em>${ album.description! } asdfas dfas asdf asdfasdfa asdf asdf asdf asdf  asd fas dfa sdf asdf asd fas dfa sdf asd fasd f asdf </em>
+				<em>${ album.description! }</em>
 			</div>
 		</figure>
 	</#list>

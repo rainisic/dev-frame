@@ -64,7 +64,7 @@
 			</span>
 			<span>
 				<label for="publishTime">发布日期：</label>
-				<input id="publishTime" name="publishTime" type="text" readonly required>
+				<input id="publishTime" name="publishTime" type="text" pattern="^(19|20)[0-9]{2}/[0-9]{2}/[0-9]{2}$" required>
 			</span>
 		</p>
 		<p style="text-align: right;">
