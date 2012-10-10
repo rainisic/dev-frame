@@ -9,14 +9,14 @@
 </div>
 <#if activities?? && activities?size gt 0>
 	<table class="content-list">
-	<tr>
-		<th style="width: 40px;">ID</th>
-		<th>标题</th>
-		<th style="width: 60px;">优先级</th>
-		<th style="width: 150px;">状态</th>
-		<th style="width: 200px;">发布日期</th>
-		<th style="width: 100px;">操作</th>
-	</tr>
+		<tr>
+			<th style="width: 40px;">ID</th>
+			<th>标题</th>
+			<th style="width: 60px;">优先级</th>
+			<th style="width: 150px;">状态</th>
+			<th style="width: 200px;">发布日期</th>
+			<th style="width: 100px;">操作</th>
+		</tr>
 		<#list activities as activity>
 			<tr id="${ activity.id }">
 				<td>${ activity.id }</td>

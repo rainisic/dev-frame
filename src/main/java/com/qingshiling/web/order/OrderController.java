@@ -79,10 +79,10 @@ public class OrderController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("list")
+	@RequestMapping("admin/list")
 	public String list(Model model){
-		model.addAttribute("orderList", orderServiceImpl.list());
-		return "site.order.list";
+		model.addAttribute("orders", orderServiceImpl.list());
+		return "admin.admin.order";
 	}
 	
 	/**
@@ -92,10 +92,10 @@ public class OrderController {
 	 * @param id
 	 * @return
 	 */
-	@RequestMapping("detele")
-	public String detele(Model model,Integer id){
+	@RequestMapping("admin/delete")
+	public String delete(Model model,Integer id){
 		orderServiceImpl.delete(id);
-		return "redirect:/order/list";
+		return "redirect:/order/admin/list.html";
 	}
 		
 }

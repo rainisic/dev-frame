@@ -45,7 +45,7 @@ function initialize() {
 	});
 	
 	// Set button UI.
-	$("button").button({
+	$("#create-activity").button({
 		icons: {
             primary: "ui-icon-plus"
         }

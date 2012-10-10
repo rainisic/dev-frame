@@ -34,10 +34,10 @@ public class TicketController {
 	 * @param ticket
 	 * @return
 	 */
-	@RequestMapping("publish")
+	@RequestMapping("admin/publish")
 	public String publish(Model model, Ticket ticket){
 		ticketService.save(ticket);
-		return "redirect:/ticket/list";
+		return "redirect:/ticket/admin/list.html";
 	}
 	
 	/**
@@ -47,10 +47,10 @@ public class TicketController {
 	 * @param ticket
 	 * @return
 	 */
-	@RequestMapping("update")
+	@RequestMapping("admin/update")
 	public String update(Model model, Ticket ticket){
 		ticketService.update(ticket);
-		return "redirect:/ticket/list";
+		return "redirect:/ticket/admin/list.html";
 	}
 	
 	/**
@@ -59,10 +59,10 @@ public class TicketController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("list")
+	@RequestMapping("admin/list")
 	public String list(Model model){
 		ticketService.list();
-		return "site.ticket.list";
+		return "admin.admin.ticket";
 	}
 	
 	/**
@@ -72,9 +72,9 @@ public class TicketController {
 	 * @param id
 	 * @return
 	 */
-	@RequestMapping("delete")
+	@RequestMapping("admin/delete")
 	public String delete(Model model, Integer id){
 		ticketService.delete(id);
-		return "redirect:/ticket/list";
+		return "redirect:/ticket/admin/list.html";
 	}
 }

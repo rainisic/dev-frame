@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+section.main table.content-list { border-collapse: collapse; width: 100%; border: 1px gray solid; text-align: center; }
+section.main table.content-list tr { border: 1px gray solid; }
+section.main table.content-list tr:nth-child(odd) { background-color: #FFFFEE; }
+section.main table.content-list tr:nth-child(even) { background-color: #EEEEFF; }
+section.main table.content-list tr td, section.main table tr th { border: 1px gray solid; padding: 5px 0; }
+section.main table.content-list tr td:nth-child(6), section.main table.content-list tr td:nth-child(7) { text-align: left; padding: 5px; }
+section.main table .delete { cursor: pointer; color: blue; margin: 0 10px; }
+section.main table .delete:hover { color: red; }
+#delete-confirm { display: none; text-align: center; }
