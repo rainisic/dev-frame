@@ -7,12 +7,21 @@
  */
 package com.qingshiling.service.impl;
 
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
+import java.util.UUID;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.frame.util.ApplicationConfiguration;
 import com.qingshiling.dao.PictureDao;
 import com.qingshiling.entity.Album;
 import com.qingshiling.entity.Picture;
@@ -110,5 +119,85 @@ public class PictureServiceImpl implements PictureService {
 			return true;
 		}
 		return false;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.qingshiling.service.PictureService#publish(org.springframework.web
+	 * .multipart.MultipartFile, com.qingshiling.entity.Picture)
+	 */
+	@Override
+	@Transactional
+	public void publish(MultipartFile pictureFile, Picture picture) {
+		// 生成uuid
+		String uuid = UUID.randomUUID().toString();
+		String fileName = pictureFile.getOriginalFilename();
+		String path = uuid + fileName.substring(fileName.indexOf("."));
+		picture.setPath(path);
+		pictureDao.save(picture);
+		uploadImgMethod(pictureFile,uuid);
+	}
+	
+	/**
+	 * 上传文件方法
+	 * 
+	 * @param pictureFile
+	 * @param uuid
+	 */
+	public void uploadImgMethod(MultipartFile pictureFile, String uuid) {
+		String fileName = pictureFile.getOriginalFilename();
+		// 查找存放文件目录,判断此目录是否存在，不存在创建
+		String saveDirectory = getSaveDirectory();
+		InputStream in = null;
+		BufferedInputStream bis = null;
+		FileOutputStream fos = null;
+		try {
+			// 上传图片
+			in = pictureFile.getInputStream();
+			bis = new BufferedInputStream(in);
+			//输出路径（路径+(/OR\)+名字+后缀）
+			fos = new FileOutputStream(saveDirectory + File.separator + uuid
+					+ fileName.substring(fileName.indexOf(".")));
+			int BUFFER_SIZE = 1024 * 10;
+			byte[] buf = new byte[BUFFER_SIZE];
+			int size = 0;
+			while ((size = bis.read(buf)) != -1) {
+				fos.write(buf, 0, size);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (bis != null) {
+					bis.close();
+				}
+				if (in != null) {
+					in.close();
+				}
+				if (fos != null) {
+					fos.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	/**
+	 * 查找存放文件目录,判断此目录是否存在，不存在创建
+	 * 
+	 * @return
+	 */
+	public String getSaveDirectory() {
+		String imgUrl = ApplicationConfiguration.getProperty("upload.location");
+		String saveDirectory = imgUrl + File.separator;
+		// 判断此目录是否存在，不存在创建
+		File file = new File(saveDirectory);
+		if (!file.exists()) {
+			file.mkdirs();
+		}
+		return saveDirectory;
 	}
 }

@@ -9,6 +9,8 @@ package com.qingshiling.service;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.qingshiling.entity.Picture;
 
 /**
@@ -51,4 +53,12 @@ public interface PictureService {
 	 * @return success or not.
 	 */
 	public boolean delete(int id);
+	
+	/**
+	 * upload a pictrue.
+	 * 
+	 * @param pictureFile
+	 * @param picture
+	 */
+	public void publish(MultipartFile pictureFile, Picture picture);
 }
