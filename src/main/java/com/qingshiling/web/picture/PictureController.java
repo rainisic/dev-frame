@@ -36,7 +36,7 @@ public class PictureController {
 	 * @param picture
 	 * @return
 	 */
-	@RequestMapping("publish")
+	@RequestMapping("admin/publish")
 	public String publish(Model model, MultipartFile pictureFile,Picture picture){
 		if(pictureFile != null && picture !=null){
 			pictureServiceImpl.publish(pictureFile, picture);
@@ -45,5 +45,9 @@ public class PictureController {
 		return "";
 	}
 
+	@RequestMapping("admin/test")
+	public String publish(Model model){
+		return "site.activity.test";
+	}
 
 }
