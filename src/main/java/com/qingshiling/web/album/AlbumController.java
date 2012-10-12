@@ -94,6 +94,7 @@ public class AlbumController {
 	 * @param album
 	 * @return
 	 */
+	@RequestMapping("admin/update")
 	public String update(Model model, Album album){
 		albumServiceImpl.update(album);
 		return "redirect:/album/admin/list.html";
@@ -106,6 +107,7 @@ public class AlbumController {
 	 * @param id
 	 * @return
 	 */
+	@RequestMapping("admin/delete")
 	public String delete(Model model, Integer id){
 		albumServiceImpl.delete(id);
 		return "redirect:album/admin/list.html";
