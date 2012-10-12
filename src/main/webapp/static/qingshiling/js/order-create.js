@@ -45,6 +45,7 @@ $(document).ready(function() {
 					
 					// Clear form data.
 					$("#publishOrderForm").resetForm();
+					calculate();
 					
 					// Write hint message.
 					$("div.hint h1").text("订单提交成功！");
@@ -108,94 +109,6 @@ $(document).ready(function() {
 			}
 		});
 	});
-	
-/*	// Definition the AJAX form.
-	$("#publishOrderForm").ajaxForm({
-		beforeSubmit:	function() { 
-			
-			// Validate data.
-			if (!validate()) {
-				return false;
-			}
-			
-			// Block document until request finished.
-			$.blockUI({ css: { 
-				border: "none", 
-				padding: "15px", 
-				backgroundColor: "#000", 
-				"border-radius": "10px", 
-				opacity: 0.5, 
-				color: "#fff" 
-			} }); 
-		},
-		success:	function(data) { 
-
-			if (data == "success") {
-				
-				// Clear form data.
-				$("#publishOrderForm").resetForm();
-				
-				// Write hint message.
-				$("div.hint h1").text("订单提交成功！");
-			} else if (data == "failure") {
-				
-				// Write hint message.
-				$("div.hint h1").text("订单提交失败，请检查数据！");
-			}
-			
-			// Unblock UI.
-			$.unblockUI();
-			
-			// Show success message.
-			setTimeout(function() {
-				
-				// Show hint message.
-				$.blockUI({ 
-		            message: $("div.hint"), 
-		            fadeIn: 1000, 
-		            fadeOut: 1000, 
-		            timeout: 2000, 
-		            showOverlay: false,
-		            css:	{
-		            	border: "none",
-		            	backgroundColor: "#000",
-		            	opacity: 0.5,
-		            	"border-radius": "10px"
-		            }
-		        });
-			}, 500);
-		},
-		error:		function(data) { 
-
-			// Unblock UI.
-			$.unblockUI();
-			
-			// Show success message.
-			setTimeout(function() {
-				
-				// Write hint message.
-				$("div.hint h1").text("订单提交失败，请稍后重试！");
-				
-				// Show hint message.
-				$.blockUI({ 
-		            message: $("div.hint"), 
-		            fadeIn: 1000, 
-		            fadeOut: 1000, 
-		            timeout: 2000, 
-		            showOverlay: false,
-		            css:	{
-		            	border: "none",
-		            	backgroundColor: "#000",
-		            	opacity: 0.5,
-		            	"border-radius": "10px"
-		            }
-		        });
-				
-				// Clear hint message.
-				$("div.hint h1").text("");
-			}, 500);
-		}
-	});*/
 	
 	// Calculate cost on ticket count change.
 	$(".ticket-count").change(function() {

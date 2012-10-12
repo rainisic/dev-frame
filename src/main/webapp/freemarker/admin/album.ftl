@@ -1,13 +1,13 @@
 <link rel="stylesheet" type="text/css" href="${ project.staticDomain! }/${ project.name! }/css/admin/album.css">
 <div class="operation">
-	<button id="create">添加门票</button>
+	<button id="create">添加相册</button>
 </div>
 <#if albums?? && albums?size gt 0>
 	<ul>
 		<#list albums as album>
 			<li>
 				<figure>
-					<img src="${ uploadLocation! }/${ (album.cover.path)!"default-cover.jpg" }">
+					<a href="/album/picture/admin/list.html?id=${ album.id }"><img src="${ uploadLocation! }/${ (album.cover.path)!"default-cover.jpg" }"></a>
 					<figurecaption>${ album.name }</figurecaption>
 				</figure>
 				<article>${ album.description }</article>

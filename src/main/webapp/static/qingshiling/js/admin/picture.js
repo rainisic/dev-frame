@@ -81,7 +81,7 @@ function deleteButtonClickActionPerformed() {
 		modal: true,
 		buttons: {
 			"删除": function() {
-				window.location.href = "/album/admin/delete.html?id=" + delete_id;
+				window.location.href = "/album/picture/admin/delete.html?id=" + delete_id;
 				$( this ).dialog("close");
 			},
 			"取消": function() {
@@ -106,7 +106,7 @@ function modifyButtonClickActionPerformed() {
 	$("#description").val(album.find("article").text());
 
 	// Change action url.
-	$("#edit-form").attr("action", "/album/admin/update.html");
+	$("#edit-form").attr("action", "/album/picture/admin/update.html");
 	
 	// Show dialog.
 	$("#edit-dialog").dialog("open");
@@ -118,7 +118,7 @@ function modifyButtonClickActionPerformed() {
 function createButtonClickActionPerformed() {
 	
 	// Change action url and show the editor dialog.
-	$("#edit-form").attr("action", "/album/admin/publish.html");
+	$("#edit-form").attr("action", "/album/picture/admin/publish.html");
 
 	// Show dialog.
 	$("#edit-dialog").dialog("open");

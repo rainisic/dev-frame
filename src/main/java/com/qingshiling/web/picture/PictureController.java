@@ -22,11 +22,16 @@ import com.qingshiling.service.PictureService;
  *
  */
 @Controller
-@RequestMapping("picture")
+@RequestMapping("album/picture")
 public class PictureController {
 	
 	@Resource
 	private PictureService pictureServiceImpl;
+	
+	@RequestMapping("admin/list")
+	public String list(Model model) {
+		return "admin.admin.picture";
+	}
 	
 	/**
 	 * upload a picture.

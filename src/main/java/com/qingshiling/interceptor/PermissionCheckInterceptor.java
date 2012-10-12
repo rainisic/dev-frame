@@ -13,6 +13,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import com.frame.util.ApplicationConfiguration;
+
 /**
  * @author rainisic
  * 
@@ -30,13 +32,18 @@ public class PermissionCheckInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
+		
+		// Load server mode.
+		String serverMode = ApplicationConfiguration.getProperty("server.mode");
+		if (serverMode != null && serverMode.equalsIgnoreCase("RELEASE")) {
+			
+			// Check session info.
+			HttpSession session = request.getSession();
 
-		// Check session info.
-		HttpSession session = request.getSession();
-
-		if (session.getAttribute("system_admin") == null) {
-			response.sendRedirect("/login.html");
-			return false;
+			if (session.getAttribute("system_admin") == null) {
+				response.sendRedirect("/login.html");
+				return false;
+			}
 		}
 		return true;
 	}

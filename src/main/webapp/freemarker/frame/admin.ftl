@@ -15,11 +15,11 @@
 		<h1>${ project.title!"Rain Rhyme Internet Studio" }内部系统</h1>
 	</header>
 	<nav>
-		<a <#if forum?? && forum == "admin" >class="active"<#else>href="/admin/index.html"</#if>>首页</a>
-		<a <#if forum?? && forum == "activity" >class="active"<#else>href="/activity/admin/list.html"</#if>>活动详情</a>
-		<a <#if forum?? && forum == "album" >class="active"<#else>href="/album/admin/list.html"</#if>>漂流风采</a>
-		<a <#if forum?? && forum == "ticket" >class="active"<#else>href="/ticket/admin/list.html"</#if>>门票管理</a>
-		<a <#if forum?? && forum == "order" >class="active"<#else>href="/order/admin/list.html"</#if>>订单管理</a>
+		<a <#if forum?? && forum == "admin" >class="active"</#if> href="/admin/index.html">首页</a>
+		<a <#if forum?? && forum == "activity" >class="active"</#if> href="/activity/admin/list.html">活动详情</a>
+		<a <#if forum?? && forum == "album" >class="active"</#if> href="/album/admin/list.html">漂流风采</a>
+		<a <#if forum?? && forum == "ticket" >class="active"</#if> href="/ticket/admin/list.html">门票管理</a>
+		<a <#if forum?? && forum == "order" >class="active"</#if> href="/order/admin/list.html">订单管理</a>
 	</nav>
 	<section class="main">
 		<@tiles.insertAttribute name="body" />
