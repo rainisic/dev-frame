@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.qingshiling.entity.Album;
 import com.qingshiling.service.AlbumService;
 import com.qingshiling.service.PictureService;
 
@@ -72,4 +73,42 @@ public class AlbumController {
 		model.addAttribute("pageTitle", "漂流风采");
 		return "admin.admin.album";
 	}
+	
+	/**
+	 * add a album.
+	 * 
+	 * @param model
+	 * @param album
+	 * @return
+	 */
+	@RequestMapping("admin/publish")
+	public String publish(Model model, Album album){
+		albumServiceImpl.save(album);
+		return "redirect:/album/admin/list.html";
+	}
+	
+	/**
+	 * update a album.
+	 * 
+	 * @param model
+	 * @param album
+	 * @return
+	 */
+	public String update(Model model, Album album){
+		albumServiceImpl.update(album);
+		return "redirect:/album/admin/list.html";
+	}
+	
+	/**
+	 * delete a album.
+	 * 
+	 * @param model
+	 * @param id
+	 * @return
+	 */
+	public String delete(Model model, Integer id){
+		albumServiceImpl.delete(id);
+		return "redirect:album/admin/list.html";
+	}
+		
 }
