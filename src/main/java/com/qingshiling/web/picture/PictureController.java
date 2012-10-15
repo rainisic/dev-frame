@@ -7,8 +7,14 @@
  */
 package com.qingshiling.web.picture;
 
-import javax.annotation.Resource;
+import java.io.File;
 
+import javax.annotation.Resource;
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,9 +48,11 @@ public class PictureController {
 	 * @return
 	 */
 	@RequestMapping("admin/publish")
-	public String publish(Model model, MultipartFile pictureFile,Picture picture){
+	public String publish(Model model, MultipartFile pictureFile,Picture picture,HttpServletRequest request){
 		if(pictureFile != null && picture !=null){
-			pictureServiceImpl.publish(pictureFile, picture);
+			String realPath = request.getSession().getServletContext().getRealPath("/");
+			File file = (File) pictureFile;
+			pictureServiceImpl.publish(file, picture,realPath);
 			return "";
 		}
 		return "";
