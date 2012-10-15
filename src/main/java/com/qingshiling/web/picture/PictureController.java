@@ -7,7 +7,10 @@
  */
 package com.qingshiling.web.picture;
 
+import java.io.File;
+
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,21 +22,21 @@ import com.qingshiling.service.PictureService;
 
 /**
  * @author lge
- *
+ * 
  */
 @Controller
 @RequestMapping("album/picture")
 public class PictureController {
-	
+
 	@Resource
 	private PictureService pictureServiceImpl;
-	
+
 	@RequestMapping("admin/list")
 	public String list(Model model, Integer id) {
 		model.addAttribute("pictures", pictureServiceImpl.list(id));
 		return "admin.admin.picture";
 	}
-	
+
 	/**
 	 * upload a picture.
 	 * 
@@ -43,17 +46,20 @@ public class PictureController {
 	 * @return
 	 */
 	@RequestMapping("admin/publish")
-	public String publish(Model model, MultipartFile pictureFile,Picture picture){
-		
-		if(pictureFile != null && picture !=null){
-			pictureServiceImpl.publish(pictureFile, picture);
-			return "";
+	public String publish(Model model, MultipartFile pictureFile,
+			Picture picture, HttpServletRequest request) {
+		if (pictureFile != null && picture != null) {
+			String realPath = request.getSession().getServletContext()
+					.getRealPath("/");
+			File file = (File) pictureFile;
+			pictureServiceImpl.publish(file, picture, realPath);
+			return "redirect:/album/admin/list.html";
 		}
-		return "";
+		return "redirect:/album/admin/list.html";
 	}
 
 	@RequestMapping("admin/test")
-	public String publish(Model model){
+	public String publish(Model model) {
 		return "site.activity.test";
 	}
 

@@ -9,6 +9,7 @@ package com.qingshiling.service.impl;
 
 import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -130,14 +131,14 @@ public class PictureServiceImpl implements PictureService {
 	 */
 	@Override
 	@Transactional
-	public void publish(MultipartFile pictureFile, Picture picture) {
+	public void publish(File pictureFile, Picture picture,String realPath) {
 		// 生成uuid
 		String uuid = UUID.randomUUID().toString();
-		String fileName = pictureFile.getOriginalFilename();
+		String fileName = pictureFile.getName();
 		String path = uuid + fileName.substring(fileName.indexOf("."));
 		picture.setPath(path);
 		pictureDao.save(picture);
-		uploadImgMethod(pictureFile,uuid);
+		uploadImgMethod(pictureFile,uuid,realPath);
 	}
 	
 	/**
@@ -146,16 +147,16 @@ public class PictureServiceImpl implements PictureService {
 	 * @param pictureFile
 	 * @param uuid
 	 */
-	public void uploadImgMethod(MultipartFile pictureFile, String uuid) {
-		String fileName = pictureFile.getOriginalFilename();
+	private void uploadImgMethod(File pictureFile, String uuid, String realPath) {
+		String fileName = pictureFile.getName();
 		// 查找存放文件目录,判断此目录是否存在，不存在创建
-		String saveDirectory = getSaveDirectory();
-		InputStream in = null;
+		String saveDirectory = getSaveDirectory(realPath);
+		FileInputStream in = null;
 		BufferedInputStream bis = null;
 		FileOutputStream fos = null;
 		try {
 			// 上传图片
-			in = pictureFile.getInputStream();
+			in = new FileInputStream(pictureFile);
 			bis = new BufferedInputStream(in);
 			//输出路径（路径+(/OR\)+名字+后缀）
 			fos = new FileOutputStream(saveDirectory + File.separator + uuid
@@ -190,9 +191,8 @@ public class PictureServiceImpl implements PictureService {
 	 * 
 	 * @return
 	 */
-	public String getSaveDirectory() {
-		String imgUrl = ApplicationConfiguration.getProperty("upload.location");
-		String saveDirectory = imgUrl + File.separator;
+	private String getSaveDirectory(String realPath) {
+		String saveDirectory = realPath + File.separator;
 		// 判断此目录是否存在，不存在创建
 		File file = new File(saveDirectory);
 		if (!file.exists()) {
