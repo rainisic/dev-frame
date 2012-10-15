@@ -13,6 +13,7 @@
 				<article>${ picture.description }</article>
 				<div>
 					<button class="modify">修改</button>
+					<button class="set-cover">设为封面</button>
 					<button class="delete">删除</button>
 				</div>
 			</li>

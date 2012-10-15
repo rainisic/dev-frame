@@ -25,6 +25,12 @@ function initialize() {
         }
 	});
 	
+	$("button.set-cover").button({
+		icons: {
+            primary: "ui-icon-clipboard"
+        }
+	});
+	
 	$("button.delete").button({
 		icons: {
             primary: "ui-icon-trash"

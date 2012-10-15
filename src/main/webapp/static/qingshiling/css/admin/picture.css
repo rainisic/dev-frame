@@ -12,7 +12,7 @@ section.main ul li figure img { display: block; border: 1px silver solid; width:
 section.main ul li figure figurecaption { display: block; margin-top: 10px; }
 section.main ul li article { padding: 20px; float: left; margin-left: 20px; }
 section.main ul li div { width: 180px; height: 180px; float: right; padding: 10px; text-align: center; border-left: 1px silver dotted; }
-section.main ul li div button.modify, section.main ul li div button.delete { width: 100px; margin-top: 40px; }
+section.main ul li div button.modify, section.main ul li div button.delete, section.main ul li div button.set-cover { width: 120px; margin-top: 20px; }
 #delete-confirm { display: none; text-align: center; }
 #edit-form *, #create-form { vertical-align: middle; }
 #edit-form input, #create-form input { border: 1px silver solid; padding: 5px; width: 250px; }

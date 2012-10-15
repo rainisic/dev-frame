@@ -7,7 +7,6 @@
  */
 package com.qingshiling.web.picture;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -61,7 +60,8 @@ public class PictureController {
 			if (fileStream != null) {
 				fileStream.close();
 			}
-			return "redirect:/album/admin/list.html";
+			model.addAttribute("id", picture.getAlbum().getId());
+			return "redirect:/album/picture/admin/list.html";
 		}
 		return "redirect:/album/admin/list.html";
 	}
