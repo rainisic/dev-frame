@@ -131,14 +131,13 @@ public class PictureServiceImpl implements PictureService {
 	 */
 	@Override
 	@Transactional
-	public void publish(File pictureFile, Picture picture,String realPath) {
+	public void publish(InputStream fileStream, Picture picture,String realPath, String fileName) {
 		// 生成uuid
 		String uuid = UUID.randomUUID().toString();
-		String fileName = pictureFile.getName();
 		String path = uuid + fileName.substring(fileName.indexOf("."));
 		picture.setPath(path);
 		pictureDao.save(picture);
-		uploadImgMethod(pictureFile,uuid,realPath);
+		uploadImgMethod(fileStream,uuid,realPath,fileName);
 	}
 	
 	/**
@@ -147,16 +146,14 @@ public class PictureServiceImpl implements PictureService {
 	 * @param pictureFile
 	 * @param uuid
 	 */
-	private void uploadImgMethod(File pictureFile, String uuid, String realPath) {
-		String fileName = pictureFile.getName();
+	private void uploadImgMethod(InputStream fileStream, String uuid, String realPath, String fileName) {
 		// 查找存放文件目录,判断此目录是否存在，不存在创建
 		String saveDirectory = getSaveDirectory(realPath);
-		FileInputStream in = null;
 		BufferedInputStream bis = null;
+		InputStream in = fileStream;
 		FileOutputStream fos = null;
 		try {
 			// 上传图片
-			in = new FileInputStream(pictureFile);
 			bis = new BufferedInputStream(in);
 			//输出路径（路径+(/OR\)+名字+后缀）
 			fos = new FileOutputStream(saveDirectory + File.separator + uuid
@@ -192,7 +189,7 @@ public class PictureServiceImpl implements PictureService {
 	 * @return
 	 */
 	private String getSaveDirectory(String realPath) {
-		String saveDirectory = realPath + File.separator;
+		String saveDirectory = realPath + ApplicationConfiguration.getProperty("upload.location") + File.separator;
 		// 判断此目录是否存在，不存在创建
 		File file = new File(saveDirectory);
 		if (!file.exists()) {

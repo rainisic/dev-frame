@@ -8,6 +8,8 @@
 package com.qingshiling.web.picture;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -45,15 +47,20 @@ public class PictureController {
 	 * @param pictureFile
 	 * @param picture
 	 * @return
+	 * @throws IOException
 	 */
 	@RequestMapping("admin/publish")
 	public String publish(Model model, MultipartFile pictureFile,
-			Picture picture, HttpServletRequest request) {
+			Picture picture, HttpServletRequest request) throws IOException {
 		if (pictureFile != null && picture != null) {
 			String realPath = request.getSession().getServletContext()
 					.getRealPath("/");
-			File file = (File) pictureFile;
-			pictureServiceImpl.publish(file, picture, realPath);
+			InputStream fileStream = pictureFile.getInputStream();
+			String fileName = pictureFile.getOriginalFilename();
+			pictureServiceImpl.publish(fileStream, picture, realPath, fileName);
+			if (fileStream != null) {
+				fileStream.close();
+			}
 			return "redirect:/album/admin/list.html";
 		}
 		return "redirect:/album/admin/list.html";

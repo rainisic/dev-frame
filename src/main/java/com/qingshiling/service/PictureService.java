@@ -8,6 +8,7 @@
 package com.qingshiling.service;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -60,6 +61,10 @@ public interface PictureService {
 	 * 
 	 * @param pictureFile
 	 * @param picture
+	 * @param realPath
+	 * @param fileName
 	 */
-	public void publish(File pictureFile, Picture picture,String realPath);
+	public void publish(InputStream fileStream, Picture picture,String realPath, String fileName);
+
+	
 }
