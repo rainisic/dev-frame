@@ -10,6 +10,7 @@ package com.qingshiling.web.activity;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,7 +45,7 @@ public class ActivityController {
 	 * @return
 	 */
 	@RequestMapping("page/{index}")
-	public String list(Model model, Page page) {
+	public String list(Model model, Page page, HttpServletRequest request) {
 
 		// Paging activities.
 		page = activityServiceImpl.paging(ActivityStatus.PUBLISHED,

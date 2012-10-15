@@ -48,6 +48,12 @@ function initialize() {
 			}
 		}
 	});
+	
+	/*
+	 * Scroll to the top.
+	 * This is for resolved the bug.
+	 */
+	$("body > section")[0].scrollTop = 0;
 }
 
 /**

@@ -32,6 +32,22 @@ function initialize() {
 	});
 	
 	// Initialize dialog.
+	$("#create-dialog").dialog({
+		autoOpen: false,
+		resizable: false,
+		width: 400,
+		height: 300,
+		modal: true,
+		buttons: {
+			"保存": function() {
+				$("#create-submit").click();
+			},
+			"取消": function() {
+				$(this).dialog("close");
+				$("#create-form")[0].reset();
+			}
+		}
+	});
 	$("#edit-dialog").dialog({
 		autoOpen: false,
 		resizable: false,
@@ -40,7 +56,7 @@ function initialize() {
 		modal: true,
 		buttons: {
 			"保存": function() {
-				$("#submit").click();
+				$("#edit-submit").click();
 			},
 			"取消": function() {
 				$(this).dialog("close");
@@ -48,6 +64,12 @@ function initialize() {
 			}
 		}
 	});
+
+	/*
+	 * Scroll to the top.
+	 * This is for resolved the bug.
+	 */
+	$("body > section")[0].scrollTop = 0;
 }
 
 /**
@@ -82,10 +104,10 @@ function deleteButtonClickActionPerformed() {
 		buttons: {
 			"删除": function() {
 				window.location.href = "/album/picture/admin/delete.html?id=" + delete_id;
-				$( this ).dialog("close");
+				$(this).dialog("close");
 			},
 			"取消": function() {
-				$( this ).dialog("close");
+				$(this).dialog("close");
 			}
 		}
 	});
@@ -101,13 +123,10 @@ function modifyButtonClickActionPerformed() {
 	var album = $(this).parents("li");
 	
 	// Put values.
-	$("#id").val(album.attr("id"));
-	$("#name").val(album.find("figurecaption").text());
-	$("#description").val(album.find("article").text());
+	$("#edit-id").val(album.attr("id"));
+	$("#edit-name").val(album.find("figurecaption").text());
+	$("#edit-description").val(album.find("article").text());
 
-	// Change action url.
-	$("#edit-form").attr("action", "/album/picture/admin/update.html");
-	
 	// Show dialog.
 	$("#edit-dialog").dialog("open");
 }
@@ -117,9 +136,6 @@ function modifyButtonClickActionPerformed() {
  */
 function createButtonClickActionPerformed() {
 	
-	// Change action url and show the editor dialog.
-	$("#edit-form").attr("action", "/album/picture/admin/publish.html");
-
 	// Show dialog.
-	$("#edit-dialog").dialog("open");
+	$("#create-dialog").dialog("open");
 }

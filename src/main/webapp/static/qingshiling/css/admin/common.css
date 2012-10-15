@@ -15,5 +15,5 @@ body > header h1 { margin: 0; margin-left: 10px; letter-spacing: 0.15em; }
 body > nav { position: fixed; top: 65px; bottom: 25px; left: 5px; width: 200px; background-color: white; border: 1px #99BCE8 solid; }
 body > nav a { display: block; height: 30px; line-height: 30px; text-align: center; margin: 3px; letter-spacing: 0.5em; }
 body > nav a.active { background-color: #DFE8F6; border: 1px #A3BAE9 dotted; font-weight: bold; }
-body > section { position: fixed; top: 65px; right: 5px; bottom: 25px; left: 210px; background-color: white; border: 1px #99BCE8 solid; padding: 10px; overflow-y: scroll; }
+body > section { position: fixed; top: 65px; right: 5px; bottom: 25px; left: 210px; background-color: white; border: 1px #99BCE8 solid; padding: 10px; overflow-y: auto; }
 body > footer { position: fixed; right: 5px; bottom: 0px; left: 5px; height: 25px; font-size: 10px; text-align: center; line-height: 25px; }

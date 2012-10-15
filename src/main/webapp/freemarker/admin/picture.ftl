@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="${ project.staticDomain! }/${ project.name! }/css/admin/album.css">
+<link rel="stylesheet" type="text/css" href="${ project.staticDomain! }/${ project.name! }/css/admin/picture.css">
 <div class="operation">
 	<button id="create">添加照片</button>
 </div>
@@ -25,18 +25,36 @@
 	<div class="no-content">尚无照片</div>
 </#if>
 
-<div id="edit-dialog" title="编辑照片">
-	<form id="edit-form" method="post">
-		<input id="id" name="id" type="hidden" value="0">
+<div id="create-dialog" title="添加图片">
+	<form id="create-form" action="/album/picture/admin/publish.html" method="post" enctype="multipart/form-data">
 		<p>
-			<label for="name">照片名称：</label>
-			<input id="name" name="name" type="text" placeholder="请输入照片名称" maxLength="10" autofocus required>
+			<label for="upload-file">选择文件：</label>
+			<input id="upload-file" name="pictureFile" type="file" accept="image/*" required>
 		</p>
 		<p>
-			<label for="description">照片描述：</label>
-			<textarea id="description" name="description" placeholder="请输入照片描述"></textarea>
+			<label for="create-name">照片名称：</label>
+			<input id="create-name" name="name" type="text" placeholder="请输入照片名称" maxLength="10" autofocus required>
 		</p>
-		<input id="submit" type="submit" style="display: none;">
+		<p>
+			<label for="create-description">照片描述：</label>
+			<textarea id="create-description" name="description" placeholder="请输入照片描述"></textarea>
+		</p>
+		<input id="create-submit" type="submit" style="display: none;">
 	</form>
 </div>
-<script type="text/javascript" src="${ project.staticDomain! }/${ project.name! }/js/admin/album.js"></script>
+
+<div id="edit-dialog" title="编辑照片">
+	<form id="edit-form" action="/album/picture/admin/update.html" method="post">
+		<input id="edit-id" name="id" type="hidden" value="0">
+		<p>
+			<label for="edit-name">照片名称：</label>
+			<input id="edit-name" name="name" type="text" placeholder="请输入照片名称" maxLength="10" autofocus required>
+		</p>
+		<p>
+			<label for="edit-description">照片描述：</label>
+			<textarea id="edit-description" name="description" placeholder="请输入照片描述"></textarea>
+		</p>
+		<input id="edit-submit" type="submit" style="display: none;">
+	</form>
+</div>
+<script type="text/javascript" src="${ project.staticDomain! }/${ project.name! }/js/admin/picture.js"></script>
