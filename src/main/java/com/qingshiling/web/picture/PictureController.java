@@ -34,6 +34,7 @@ public class PictureController {
 	@RequestMapping("admin/list")
 	public String list(Model model, Integer id) {
 		model.addAttribute("pictures", pictureServiceImpl.list(id));
+		model.addAttribute("album", id);
 		return "admin.admin.picture";
 	}
 

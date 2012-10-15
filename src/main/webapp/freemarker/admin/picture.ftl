@@ -27,6 +27,7 @@
 
 <div id="create-dialog" title="添加图片">
 	<form id="create-form" action="/album/picture/admin/publish.html" method="post" enctype="multipart/form-data">
+		<input name="album.id" type="hidden" value="${ album }">
 		<p>
 			<label for="upload-file">选择文件：</label>
 			<input id="upload-file" name="pictureFile" type="file" accept="image/*" required>
@@ -46,6 +47,7 @@
 <div id="edit-dialog" title="编辑照片">
 	<form id="edit-form" action="/album/picture/admin/update.html" method="post">
 		<input id="edit-id" name="id" type="hidden" value="0">
+		<input name="album.id" type="hidden" value="${ album }">
 		<p>
 			<label for="edit-name">照片名称：</label>
 			<input id="edit-name" name="name" type="text" placeholder="请输入照片名称" maxLength="10" autofocus required>
