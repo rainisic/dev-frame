@@ -89,6 +89,9 @@ function actionListener() {
 	// Modify activity.
 	$(".modify").click( modifyButtonClickActionPerformed );
 	
+	// Set to album cover.
+	$(".set-cover").click( setCoverButtonClickActionPerformed );
+	
 	// Show editor dialog.
 	$("#create").click( createButtonClickActionPerformed );
 }
@@ -99,7 +102,7 @@ function actionListener() {
 function deleteButtonClickActionPerformed() {
 	
 	// Get activity id.
-	var delete_id = $(this).parents("tr").attr("id");
+	var delete_id = $(this).parents("li").attr("id");
 	
 	// Show hint dialog.
 	$( "#delete-confirm" ).dialog({
@@ -121,20 +124,30 @@ function deleteButtonClickActionPerformed() {
 
 /**
  * Perform the modify button click action.
- * Load activity by ajax and displaied in the editor dialog.
+ * Load activity by ajax and displayed in the editor dialog.
  * Change the form action to "modify URL".
  */
 function modifyButtonClickActionPerformed() {
 	
-	var album = $(this).parents("li");
+	var picture = $(this).parents("li");
 	
 	// Put values.
-	$("#edit-id").val(album.attr("id"));
-	$("#edit-name").val(album.find("figurecaption").text());
-	$("#edit-description").val(album.find("article").text());
+	$("#edit-id").val(picture.attr("id"));
+	$("#edit-name").val(picture.find("figurecaption").text());
+	$("#edit-description").val(picture.find("article").text());
 
 	// Show dialog.
 	$("#edit-dialog").dialog("open");
+}
+
+/**
+ * Set to album cover.
+ */
+function setCoverButtonClickActionPerformed() {
+	
+	var album_id = $(this).parents("ul").attr("id");
+	var picture_id = $(this).parents("li").attr("id");
+	window.location.href = "/album/admin/setCover.html?albumId=" + album_id + "&pictureId=" + picture_id;
 }
 
 /**

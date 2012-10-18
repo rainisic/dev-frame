@@ -1,4 +1,5 @@
 <style type="text/css">
-section.main h1 { text-align: center; }
 </style>
-<h1>${ project.title!"Rain Rhyme Internet Studio" }内部系统</h1>
+<h2>快捷操作</h2>
+<h2>操作指南</h2>
+<h2>技术支持</h2>

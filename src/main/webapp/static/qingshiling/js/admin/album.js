@@ -77,7 +77,7 @@ function actionListener() {
 function deleteButtonClickActionPerformed() {
 	
 	// Get activity id.
-	var delete_id = $(this).parents("tr").attr("id");
+	var delete_id = $(this).parents("li").attr("id");
 	
 	// Show hint dialog.
 	$( "#delete-confirm" ).dialog({

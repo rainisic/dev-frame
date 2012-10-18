@@ -5,16 +5,20 @@
 <#if albums?? && albums?size gt 0>
 	<ul>
 		<#list albums as album>
-			<li>
+			<li id="${ album.id }">
 				<figure>
 					<a href="/album/picture/admin/list.html?id=${ album.id }"><img src="${ uploadLocation! }/${ (album.cover.path)!"default-cover.jpg" }"></a>
 					<figurecaption>${ album.name }</figurecaption>
 				</figure>
 				<article>${ album.description }</article>
-				<div>
-					<button class="modify">修改</button>
-					<button class="delete">删除</button>
-				</div>
+				<#if album.id == 1>
+					<div style="line-height: 200px;">系统相册无法操作</div>
+				<#else>
+					<div>
+						<button class="modify">修改</button>
+						<button class="delete">删除</button>
+					</div>
+				</#if>
 			</li>
 		</#list>
 	</ul>

@@ -3,9 +3,9 @@
 	<button id="create">添加照片</button>
 </div>
 <#if pictures?? && pictures?size gt 0>
-	<ul>
+	<ul id="${ album }">
 		<#list pictures as picture>
-			<li>
+			<li id="${ picture.id }">
 				<figure>
 					<img src="${ uploadLocation! }/${ (picture.path)!"default-cover.jpg" }">
 					<figurecaption>${ picture.name }</figurecaption>
