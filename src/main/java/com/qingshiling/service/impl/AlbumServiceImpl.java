@@ -7,14 +7,18 @@
  */
 package com.qingshiling.service.impl;
 
+import java.io.File;
 import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.qingshiling.dao.AlbumDao;
+import com.qingshiling.dao.PictureDao;
 import com.qingshiling.entity.Album;
+import com.qingshiling.entity.Picture;
 import com.qingshiling.service.AlbumService;
 
 /**
@@ -31,14 +35,20 @@ public class AlbumServiceImpl implements AlbumService {
 	@Resource
 	private AlbumDao albumDao;
 
-	/* (non-Javadoc)
+	/** picture date access pbject */
+	@Resource
+	private PictureDao pictureDao;
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.qingshiling.service.AlbumService#get(int)
 	 */
 	@Override
 	public Album get(int id) {
 		return albumDao.get(id);
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -89,17 +99,46 @@ public class AlbumServiceImpl implements AlbumService {
 	 * @see com.qingshiling.service.AlbumService#delete(int)
 	 */
 	@Override
-	public boolean delete(int id) {
+	public boolean delete(int id, String realPath) {
 
 		// Load the album.
 		Album album = albumDao.get(id);
-
 		if (album != null) {
-
+			List<Picture> pictures = pictureDao.list(album);
+			if (pictures != null && pictures.size() > 0) {
+				for (int i = 0; i < pictures.size(); i++) {
+					//传入图片所在位置
+					File file = new File(realPath + pictures.get(i).getPath());
+					//判断图片是否存在
+					if (file.exists()) {
+						file.delete();
+					}
+				}
+			}
 			// Delete the album.
 			albumDao.delete(album);
 			return true;
 		}
 		return false;
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.qingshiling.service.AlbumService#setCover(java.lang.Integer,
+	 * java.lang.Integer)
+	 */
+	@Override
+	@Transactional
+	public boolean setCover(Integer albumId, Integer pictureId) {
+		Picture pickture = pictureDao.get(pictureId);
+		Album album = albumDao.get(albumId);
+		if (pickture != null && album != null) {
+			album.setCover(pickture);
+			albumDao.update(album);
+			return true;
+		}
+		return false;
+	}
+
 }

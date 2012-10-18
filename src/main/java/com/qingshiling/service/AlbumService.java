@@ -60,5 +60,13 @@ public interface AlbumService {
 	 *            id of album to delete.
 	 * @return success or not.
 	 */
-	public boolean delete(int id);
+	public boolean delete(int id, String realPath);
+	
+	/**
+	 * set cover for an album.
+	 * 
+	 * @param album
+	 * @return
+	 */
+	public boolean setCover(Integer albumId, Integer pictureId);
 }

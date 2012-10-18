@@ -7,6 +7,7 @@
 package com.qingshiling.web.album;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -108,9 +109,25 @@ public class AlbumController {
 	 * @return
 	 */
 	@RequestMapping("admin/delete")
-	public String delete(Model model, Integer id){
-		albumServiceImpl.delete(id);
+	public String delete(Model model, Integer id, HttpServletRequest request){
+		String realPath = request.getSession().getServletContext().getRealPath("/");
+		albumServiceImpl.delete(id,realPath);
 		return "redirect:album/admin/list.html";
 	}
-		
+	
+	/**
+	 * set cover for an album.
+	 * 
+	 * @param model
+	 * @param albumId
+	 * @param pictureId
+	 * @return
+	 */
+	@RequestMapping("admin/setCover")
+	public String setCover(Model model, Integer albumId, Integer pictureId){
+		if(albumServiceImpl.setCover(albumId, pictureId)){
+			return "redirect:/album/admin/list.html";
+		}
+		return "redirect:/album/admin/list.html";
+	}
 }
