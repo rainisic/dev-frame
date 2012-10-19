@@ -107,11 +107,16 @@ public class AlbumServiceImpl implements AlbumService {
 			List<Picture> pictures = pictureDao.list(album);
 			if (pictures != null && pictures.size() > 0) {
 				for (int i = 0; i < pictures.size(); i++) {
-					//传入图片所在位置
+
+					// 传入图片所在位置
 					File file = new File(realPath + pictures.get(i).getPath());
-					//判断图片是否存在
+
+					// 判断图片是否存在
 					if (file.exists()) {
 						file.delete();
+
+						// 删除相册里的图片
+						pictureDao.delete(pictures.get(i));
 					}
 				}
 			}
