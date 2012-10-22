@@ -88,9 +88,9 @@ public class PictureController {
 	 * @return
 	 */
 	@RequestMapping("admin/delete")
-	public String delete(Model model, Integer id){
-		pictureServiceImpl.delete(id);
-		model.addAttribute("id", id);
+	public String delete(Model model, Integer pictureId, Integer albumId){
+		pictureServiceImpl.delete(pictureId);
+		model.addAttribute("id", albumId);
 		return "redirect:/album/picture/admin/list.html";
 	}
 

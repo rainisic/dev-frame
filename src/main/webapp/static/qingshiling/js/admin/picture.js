@@ -103,6 +103,7 @@ function deleteButtonClickActionPerformed() {
 	
 	// Get activity id.
 	var delete_id = $(this).parents("li").attr("id");
+	var album_id = $(this).parents("ul").attr("id");
 	
 	// Show hint dialog.
 	$( "#delete-confirm" ).dialog({
@@ -112,7 +113,7 @@ function deleteButtonClickActionPerformed() {
 		modal: true,
 		buttons: {
 			"删除": function() {
-				window.location.href = "/album/picture/admin/delete.html?id=" + delete_id;
+				window.location.href = "/album/picture/admin/delete.html?pictureId=" + delete_id + "&albumId=" + album_id;
 				$(this).dialog("close");
 			},
 			"取消": function() {
