@@ -7,12 +7,16 @@
  */
 package com.qingshiling.entity;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  * Album entity class.
@@ -39,8 +43,11 @@ public class Album {
 
 	/** Cover image. */
 	@JoinColumn
-	@ManyToOne
+	@OneToOne(cascade = CascadeType.REMOVE)
 	private Picture cover;
+
+	@OneToMany(cascade = CascadeType.REMOVE)
+	private Set<Picture> pictures;
 
 	/**
 	 * @return the id
@@ -100,5 +107,20 @@ public class Album {
 	 */
 	public void setCover(Picture cover) {
 		this.cover = cover;
+	}
+
+	/**
+	 * @return the pictures
+	 */
+	public Set<Picture> getPictures() {
+		return pictures;
+	}
+
+	/**
+	 * @param pictures
+	 *            the pictures to set
+	 */
+	public void setPictures(Set<Picture> pictures) {
+		this.pictures = pictures;
 	}
 }

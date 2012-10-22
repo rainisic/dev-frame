@@ -112,9 +112,9 @@ public class AlbumController {
 	public String delete(Model model, Integer id, HttpServletRequest request){
 		String realPath = request.getSession().getServletContext().getRealPath("/");
 		if(albumServiceImpl.delete(id,realPath)){
-			return "redirect:album/admin/list.html";
+			return "redirect:/album/admin/list.html";
 		}
-		return "redirect:album/admin/list.html";
+		return "redirect:/album/admin/list.html";
 	}
 	
 	/**

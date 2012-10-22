@@ -7,6 +7,7 @@
  */
 package com.qingshiling.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -44,7 +45,7 @@ public class Picture {
 
 	/** In which album. */
 	@JoinColumn
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.REMOVE)
 	private Album album;
 
 	/**
